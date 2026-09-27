@@ -216,44 +216,79 @@ main companion are one deliverable — the main UF2 carries the display image
 inside it — so they live together and share a `CMakeLists.txt`:
 
 ```
-apps/ogvegas/
-    CMakeLists.txt      declares both ogvegas_display and ogvegas_main
+apps/kithome/
+    CMakeLists.txt      declares both kithome_display and kithome_main
     display/main.c
     main/main.c
 ```
 
-Targets keep their `_display`/`_main` suffix; only the folder drops it. A
-folder with no `main/` has no companion.
+Targets keep their `_display`/`_main` suffix; only the folder drops it.
+Flash **`*_main.uf2`** from GitHub Release **`defcon-2026`**. Do not UF2-flash
+a display application except `bl_display`.
 
-| App         | What it is                                                                       |
-| ----------- | -------------------------------------------------------------------------------- |
-| `bl`        | The display serial bootloader. Flashed once per board.                           |
-| `bench`     | Console for poking every driver from the host, via `tools/bench.py`.             |
-| `cpuprobe`  | Answers "which CPU is this?" on a board where you cannot tell.                   |
-| `fobreplay` | Sub-GHz ASK/OOK capture, T9 8.3 names, unused-code queue. See [docs/apps/fobreplay.md](docs/apps/fobreplay.md). |
-| `inertialtrail` | Pedometer with a clock, plus an auto-zoom accel minimap. CSV on the display CDC. See [docs/apps/inertialtrail.md](docs/apps/inertialtrail.md). |
-| `lcd`       | ST7789 panel bring-up on its own.                                                |
-| `lvgl`      | LVGL example — a list you drive with the front-panel buttons. Opt-in, see below. |
-| `ogvegas`   | Showcase: LCD image, audio replay and an animated LED comet, all at once.        |
-| `opticclick` | NEC IR capture/replay and a power-code list for TVs you own. See [docs/apps/opticclick.md](docs/apps/opticclick.md). |
-| `smoke`     | Bare-board bring-up: clocks, USB, the inter-CPU link.                            |
-| `template`  | The skeleton `fw new-app` copies. Start here.                                    |
-| `tonebox`   | Tone museum: DTMF sequencer, ACTS coin cadences, named MF/SF on the speaker. See [docs/apps/tonebox.md](docs/apps/tonebox.md). |
+OG Vegas, WiLiDoro, and Orca Field Notes are **not** in this cut — they stay
+in [freewili/wiliOGbsp](https://github.com/freewili/wiliOGbsp). `lcd` and
+`lvgl` are in the source tree for bring-up / opt-in UI; they have **no**
+Release UF2 here.
 
-The product catalog — names, versions, and proposed combo images — is
-[docs/apps/](docs/apps/README.md). The table above is this tree’s BSP
-samples and bring-up binaries, not that list.
+### Product slate (Release `*_main.uf2` + App Explorer)
+
+A–Z. Each row is one GitHub Release asset. Pages: [docs/apps/README.md](docs/apps/README.md).
+
+| UF2 | What it is |
+| --- | --- |
+| `airmaraud_main.uf2` | Bottlenose 2.4 GHz lab: scan APs, arm one deauth/disassoc. [airmaraud.md](docs/apps/airmaraud.md) |
+| `bandscope_main.uf2` | Sub-GHz RSSI sweep; freeze+scroll peaks. [bandscope.md](docs/apps/bandscope.md) |
+| `battlebridge_main.uf2` | C6-hosted arena: gates, PvP, enemies. [battlebridge.md](docs/apps/battlebridge.md) |
+| `bledeck_main.uf2` | BLE HID remote; four pages, pairing lock. [bledeck.md](docs/apps/bledeck.md) |
+| `chirpmail_main.uf2` | Two OGs; canned + T9 text at 433.92. [chirpmail.md](docs/apps/chirpmail.md) |
+| `diskglass_main.uf2` | FatFs library: T9/IR, WASM, delete, IR/QR. [diskglass.md](docs/apps/diskglass.md) |
+| `emsdesk_main.uf2` | Mux landing: BandScope TwinFox TireEar ISMburst FobReplay ChirpMail OpticClick. [emsdesk.md](docs/apps/emsdesk.md) |
+| `fobreplay_main.uf2` | ASK/OOK capture, named slots, unused-code queue. [fobreplay.md](docs/apps/fobreplay.md) |
+| `fundesk_main.uf2` | Mux landing: Trail TrailRF VoltPet PitchFork. [fundesk.md](docs/apps/fundesk.md) |
+| `glassbak_main.uf2` | FatFs dump/restore on main CDC. [glassbak.md](docs/apps/glassbak.md) |
+| `headerkit_main.uf2` | Hi-Z-safe I2C scan + side-header pinout. [headerkit.md](docs/apps/headerkit.md) |
+| `hostdeck_main.uf2` | Five-button macros; host helper types chords. [hostdeck.md](docs/apps/hostdeck.md) |
+| `inertialtrail_main.uf2` | Peak-valley pedometer, origin-fixed map. [inertialtrail.md](docs/apps/inertialtrail.md) |
+| `inertialtrailrf_main.uf2` | Dual parked RSSI + steps. [inertialtrailrf.md](docs/apps/inertialtrailrf.md) |
+| `ismburst_main.uf2` | ASK+2-FSK decode, named FAN/DOOR/SPARE, hunt. [ismburst.md](docs/apps/ismburst.md) |
+| `kithome_main.uf2` | Mux landing: eight live tiles (booth default). [kithome.md](docs/apps/kithome.md) |
+| `lanferry_main.uf2` | Bottlenose AP file drop between two PCs. [lanferry.md](docs/apps/lanferry.md) |
+| `micscope_main.uf2` | PDM spectrogram / dB SPL bars. [micscope.md](docs/apps/micscope.md) |
+| `opticclick_main.uf2` | Multi-PHY IR capture, FatFs slots, NEC library. [opticclick.md](docs/apps/opticclick.md) |
+| `orcalobby_main.uf2` | Mux landing: LanFerry PingHalo BleDeck AirMaraud. [orcalobby.md](docs/apps/orcalobby.md) |
+| `pinghalo_main.uf2` | BLE hunt; freeze list; T9 labels. [pinghalo.md](docs/apps/pinghalo.md) |
+| `pindesk_main.uf2` | Mux landing: HeaderKit QwiicBench TtyGlass Retia. [pindesk.md](docs/apps/pindesk.md) |
+| `pitchfork_main.uf2` | Chromatic tuner on the PDM mic. [pitchfork.md](docs/apps/pitchfork.md) |
+| `qwiicbench_main.uf2` | I2C bench; T9 nick unknowns. [qwiicbench.md](docs/apps/qwiicbench.md) |
+| `retia_main.uf2` | Bus Pirate-style CDC: HiZ GPIO I2C UART SPI. [retia.md](docs/apps/retia.md) |
+| `rigglass_main.uf2` | Host CPU/RAM/net/GPU/temp over main CDC. [rigglass.md](docs/apps/rigglass.md) |
+| `talkclip_main.uf2` | PDM VAD clips on `/talkclip`. [talkclip.md](docs/apps/talkclip.md) |
+| `tireear_main.uf2` | TPMS-shaped 315/433 ASK or 2-FSK. [tireear.md](docs/apps/tireear.md) |
+| `tonebox_main.uf2` | Tone museum + BLUEBOX sequences on I2S. [tonebox.md](docs/apps/tonebox.md) |
+| `ttyglass_main.uf2` | Header UART RX allowlist; freeze; T9 find. [ttyglass.md](docs/apps/ttyglass.md) |
+| `twinfox_main.uf2` | Dual CC1101 hunt; me/u RSSI. [twinfox.md](docs/apps/twinfox.md) |
+| `voltpet_main.uf2` | Eight foes, dash-in fights, T9 name. [voltpet.md](docs/apps/voltpet.md) |
+
+### Also in Release `defcon-2026` (bring-up, not App Explorer catalog)
+
+| UF2 | What it is |
+| --- | --- |
+| `bl_display.uf2` | Display serial bootloader. Once per board. |
+| `bench_main.uf2` | Driver console (`tools/bench.py`). |
+| `cpuprobe.uf2` | “Which CPU is this?” |
+| `smoke_main.uf2` | Clocks, USB, inter-CPU link. |
+| `template_main.uf2` | Skeleton `fw new-app` copies. |
 
 ## Product catalog
 
-Operator-facing firmware lives in `apps/<name>/` with a page under
-`docs/apps/`. App Explorer reads `catalog/apps.json`. Mux landings
-**KitHome 007**, **EmsDesk 004**, **OrcaLobby 004**, **FunDesk 004**,
-and **PinDesk 003** are bench-signed. Public-tree secrets review is
-still required before pushing a public remote.
+Operator-facing firmware is the table above. App Explorer JSON is
+[`catalog/apps.json`](catalog/apps.json) (same 32 mains; `uf2.url` points at
+Release `defcon-2026`). Mux landings: **KitHome 007**, **EmsDesk 004**,
+**OrcaLobby 004**, **FunDesk 004**, **PinDesk 003**.
 
-Full A–Z shipped list, retired/blocked names, combo verdicts, and how
-to bump `VERSION`: [docs/apps/README.md](docs/apps/README.md).
+Versions, retired/blocked names, combo verdicts, and how to bump
+`VERSION`: [docs/apps/README.md](docs/apps/README.md).
 
 ### LVGL
 

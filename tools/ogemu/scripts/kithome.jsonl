@@ -1,0 +1,31 @@
+# KitHome landing, enter HostDeck, yellow-hold home, enter MicScope.
+# Titles age out of the overlay ring; expect strings painted on the last enter.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "KitHome"}
+{"cmd": "expect_text", "contains": "HostDeck"}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 30}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "YEL hold: home"}
+{"cmd": "press", "btn": "yellow"}
+{"cmd": "tick", "ms": 800}
+{"cmd": "release", "btn": "yellow"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "KitHome"}
+{"cmd": "press", "btn": "red"}
+{"cmd": "tick", "ms": 30}
+{"cmd": "release", "btn": "red"}
+{"cmd": "tick", "ms": 30}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 30}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "MicScope"}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 800}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "KitHome"}
+{"cmd": "dump"}
+{"cmd": "quit"}

@@ -1,0 +1,50 @@
+build/
+build-tests/
+build-emu/
+build-nodiag/
+*.uf2
+*.elf
+*.bin
+# ...but the FPGA bitstream is a checked-in source artifact, not a build output.
+!bsp/main_cpu/fpga/fpga_default_v5.bin
+*.hex
+*.map
+__pycache__/
+.venv/
+.idea/
+.vs/
+.superpowers/
+.claude/worktrees/
+.claude/settings.local.json
+
+# ogemu smoke dumps (the harness writes these next to the README too)
+tools/ogemu/*.png
+tools/ogemu/*.txt
+!tools/ogemu/CMakeLists.txt
+
+# Bench Wyze Cam Pan: secrets, calibrated PTZ, JPEG captures
+tools/wyze_cam/.env
+tools/wyze_cam/config.local.json
+tools/wyze_cam/captures/
+tools/wyze_cam/go2rtc.yaml
+
+# Maintainer-only orientation doc. AGENTS.md is the published one.
+AGENTS.local.md
+
+# Local clones / downloads that are not this repository
+esp8266_deauther/
+FREE-WILi OG - FREE-WILi.html
+FREE-WILi OG - FREE-WILi_files/
+fwOGExp.exe
+fwogcli.exe
+onewili/
+fwOGAppExplorer/
+
+# Third-party Lattice app note (not ours to republish)
+docs/hardware/FPGA-TN-02011-1-8-Advanced-iCE40-I2C-and-SPI-Hardened-IP-User-Guide.pdf
+
+# NOTE: docs/superpowers/ and most of docs/hardware/ are intentionally still
+# TRACKED here -- this repository is private and they are its dev history.
+# They are kept out of the public repository by tools/publish.py, which builds
+# it from an explicit ALLOWLIST. Adding a new internal doc requires no
+# gitignore change; it simply will not be published unless it is listed there.

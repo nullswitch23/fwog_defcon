@@ -1,0 +1,6 @@
+TEXT 5 overlay line(s)
+TEXT x=8 y=6 cols=16 scale=2 "BattleBridge"
+TEXT x=8 y=56 cols=40 scale=1 "waiting for Bottlenose"
+TEXT x=8 y=80 cols=40 scale=1 "YELLOW flashes game host"
+TEXT x=8 y=104 cols=40 scale=1 "C6 serves all four browsers."
+TEXT x=8 y=210 cols=40 scale=1 "hold BOOT, RESET, GREEN"

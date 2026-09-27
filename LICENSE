@@ -1,0 +1,107 @@
+wiliOGbsp — FreeWili OG Board Support Package
+Copyright (c) 2026 Dave Robins
+
+================================================================================
+DUAL LICENSE
+================================================================================
+
+This software is available under two licenses. Choose the one that matches what
+you are building.
+
+  OPTION 1 — FreeWili Hardware License (MIT-style, free of charge)
+             You are developing, building, testing, distributing, or running
+             firmware or software that targets FreeWili hardware.
+             Terms: Section A below. No fee, no registration, no notification.
+
+  OPTION 2 — Commercial License (proprietary, separate agreement)
+             You are targeting hardware that is not FreeWili hardware.
+             Terms: Section B below. Contact Intrepid Control Systems to
+             obtain one.
+
+IMPORTANT — please read this, it prevents a common misunderstanding:
+
+  Option 1 uses the text of the MIT License but ADDS a field-of-use condition
+  limiting it to FreeWili hardware. It is therefore NOT the MIT License, NOT
+  OSI-approved, and NOT open source. Do not describe this project as "MIT
+  licensed" or "open source" without that qualification. Tooling that detects
+  an MIT-like grant will report it incorrectly.
+
+  Third-party components bundled here are NOT covered by either option and are
+  NOT subject to the hardware condition. They keep their own, more permissive
+  licenses. See Section C and THIRD-PARTY-NOTICES.md.
+
+================================================================================
+SECTION A — FreeWili Hardware License
+================================================================================
+
+"FreeWili Hardware" means hardware designed, manufactured, or authorized by
+Intrepid Control Systems, Inc. under the FreeWili brand, including but not
+limited to FreeWili OG (also known as FreeWili 1 or FreeWili Classic) and
+FreeWili 2.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+1. FIELD OF USE. The rights granted above extend only to developing, building,
+   testing, distributing, and running firmware or software that targets
+   FreeWili Hardware. Use of the Software to develop, build, or run firmware or
+   software targeting other hardware is not licensed under this Section A; see
+   Section B.
+
+   This condition does not limit: (a) building and running the host-side test
+   suite, tooling, and documentation in this repository; (b) reading, studying,
+   or discussing the Software; or (c) any right you hold under applicable law
+   that cannot be limited by contract.
+
+2. NOTICE. The above copyright notice, this permission notice, and the
+   field-of-use condition shall be included in all copies or substantial
+   portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+================================================================================
+SECTION B — Commercial License
+================================================================================
+
+If you want to use the Software to develop, build, or run firmware or software
+targeting hardware that is not FreeWili Hardware, you need a commercial license
+from Intrepid Control Systems, Inc. No such rights are granted by this file.
+
+A commercial license is a separate written agreement. Its terms, including fee,
+scope, support, and warranty, are set in that agreement and are not stated here.
+
+To request one, contact Intrepid Control Systems, Inc.:
+
+    https://intrepidcs.com/
+
+Until such an agreement is executed, no license is granted for the use
+described in this Section B.
+
+================================================================================
+SECTION C — Third-party components
+================================================================================
+
+This repository bundles or adapts software owned by others. It is licensed to
+you under ITS OWN terms, not under Section A or Section B, and the field-of-use
+condition in Section A does not apply to it. Those licenses are permissive and
+grant you rights this file cannot and does not narrow.
+
+  - FatFs                bsp/main_cpu/fs/ff/
+                         Copyright (C) 2022, ChaN — BSD-1-Clause
+  - CIC decimator        bsp/common/dsp/cic.{c,h}, adapted from wilibsp
+                         Copyright (c) 2026 Dave Robins — MIT
+  - Pico SDK board hdr   bsp/boards/freewili_og.h
+                         Copyright (c) Raspberry Pi (Trading) Ltd. — BSD-3-Clause
+
+Full details, including components deliberately NOT bundled, are in
+THIRD-PARTY-NOTICES.md. License text is retained in the corresponding source
+files.

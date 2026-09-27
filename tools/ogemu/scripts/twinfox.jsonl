@@ -1,0 +1,303 @@
+# TwinFox: fill averaged columns then dump LISTEN + FRZ shots.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "TwinFox"}
+{"cmd": "expect_text", "contains": "LISTEN"}
+{"cmd": "expect_text", "contains": "300-348"}
+{"cmd": "expect_text", "contains": "me +0   u +0"}
+{"cmd": "tf_status", "rssi0": -92, "rssi1": -88}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -92, "rssi1": -88}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -92, "rssi1": -88}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -92, "rssi1": -88}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -92, "rssi1": -88}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -92, "rssi1": -88}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -92, "rssi1": -88}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -92, "rssi1": -88}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -91, "rssi1": -85}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -91, "rssi1": -85}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -91, "rssi1": -85}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -91, "rssi1": -85}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -91, "rssi1": -85}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -91, "rssi1": -85}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -91, "rssi1": -85}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -91, "rssi1": -85}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -90, "rssi1": -82}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -90, "rssi1": -82}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -90, "rssi1": -82}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -90, "rssi1": -82}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -90, "rssi1": -82}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -90, "rssi1": -82}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -90, "rssi1": -82}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -90, "rssi1": -82}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -89, "rssi1": -79}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -89, "rssi1": -79}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -89, "rssi1": -79}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -89, "rssi1": -79}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -89, "rssi1": -79}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -89, "rssi1": -79}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -89, "rssi1": -79}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -89, "rssi1": -79}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -88, "rssi1": -76}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -88, "rssi1": -76}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -88, "rssi1": -76}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -88, "rssi1": -76}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -88, "rssi1": -76}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -88, "rssi1": -76}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -88, "rssi1": -76}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -88, "rssi1": -76}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -87, "rssi1": -73}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -87, "rssi1": -73}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -87, "rssi1": -73}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -87, "rssi1": -73}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -87, "rssi1": -73}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -87, "rssi1": -73}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -87, "rssi1": -73}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -87, "rssi1": -73}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -86, "rssi1": -70}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -86, "rssi1": -70}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -86, "rssi1": -70}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -86, "rssi1": -70}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -86, "rssi1": -70}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -86, "rssi1": -70}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -86, "rssi1": -70}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -86, "rssi1": -70}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -85, "rssi1": -67}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -85, "rssi1": -67}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -85, "rssi1": -67}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -85, "rssi1": -67}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -85, "rssi1": -67}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -85, "rssi1": -67}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -85, "rssi1": -67}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -85, "rssi1": -67}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -84, "rssi1": -64}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -84, "rssi1": -64}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -84, "rssi1": -64}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -84, "rssi1": -64}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -84, "rssi1": -64}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -84, "rssi1": -64}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -84, "rssi1": -64}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -84, "rssi1": -64}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -83, "rssi1": -61}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -83, "rssi1": -61}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -83, "rssi1": -61}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -83, "rssi1": -61}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -83, "rssi1": -61}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -83, "rssi1": -61}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -83, "rssi1": -61}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -83, "rssi1": -61}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -82, "rssi1": -58}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -82, "rssi1": -58}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -82, "rssi1": -58}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -82, "rssi1": -58}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -82, "rssi1": -58}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -82, "rssi1": -58}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -82, "rssi1": -58}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -82, "rssi1": -58}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -81, "rssi1": -55}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -81, "rssi1": -55}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -81, "rssi1": -55}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -81, "rssi1": -55}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -81, "rssi1": -55}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -81, "rssi1": -55}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -81, "rssi1": -55}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -81, "rssi1": -55}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -80, "rssi1": -52}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -80, "rssi1": -52}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -80, "rssi1": -52}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -80, "rssi1": -52}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -80, "rssi1": -52}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -80, "rssi1": -52}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -80, "rssi1": -52}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -80, "rssi1": -52}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -79, "rssi1": -49}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -79, "rssi1": -49}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -79, "rssi1": -49}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -79, "rssi1": -49}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -79, "rssi1": -49}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -79, "rssi1": -49}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -79, "rssi1": -49}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -79, "rssi1": -49}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -78, "rssi1": -46}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -78, "rssi1": -46}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -78, "rssi1": -46}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -78, "rssi1": -46}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -78, "rssi1": -46}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -78, "rssi1": -46}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -78, "rssi1": -46}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -78, "rssi1": -46}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -77, "rssi1": -43}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -77, "rssi1": -43}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -77, "rssi1": -43}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -77, "rssi1": -43}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -77, "rssi1": -43}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -77, "rssi1": -43}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -77, "rssi1": -43}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -77, "rssi1": -43}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -76, "rssi1": -40}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -76, "rssi1": -40}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -76, "rssi1": -40}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -76, "rssi1": -40}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -76, "rssi1": -40}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -76, "rssi1": -40}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -76, "rssi1": -40}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -76, "rssi1": -40}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -75, "rssi1": -37}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -75, "rssi1": -37}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -75, "rssi1": -37}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -75, "rssi1": -37}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -75, "rssi1": -37}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -75, "rssi1": -37}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -75, "rssi1": -37}
+{"cmd": "tick", "ms": 16}
+{"cmd": "tf_status", "rssi0": -75, "rssi1": -37}
+{"cmd": "tick", "ms": 16}
+{"cmd": "expect_text", "contains": "u -37"}
+{"cmd": "dump", "path": "docs/apps/twinfox/idle.png"}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "FRZ"}
+{"cmd": "dump", "path": "docs/apps/twinfox/freeze.png"}
+{"cmd": "quit"}

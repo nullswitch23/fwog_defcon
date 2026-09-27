@@ -1,0 +1,16 @@
+# ChirpMail: Blue loads first macro, Green TX increments sent.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "ChirpMail"}
+{"cmd": "expect_text", "contains": "YEL/BLU 24"}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "MEET NOC STEPS NOW"}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "sent 1"}
+{"cmd": "dump"}
+{"cmd": "quit"}

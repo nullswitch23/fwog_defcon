@@ -1,0 +1,8 @@
+TEXT 7 overlay line(s)
+TEXT x=8 y=8 cols=16 scale=2 "LanFerry"
+TEXT x=8 y=128 cols=36 scale=1 "will not speak BN."
+TEXT x=8 y=56 cols=36 scale=1 "waiting for Bottlenose"
+TEXT x=8 y=76 cols=36 scale=1 "YELLOW flashes wiliOG"
+TEXT x=8 y=96 cols=36 scale=1 "image from this UF2."
+TEXT x=8 y=112 cols=36 scale=1 "stock Orca firmware"
+TEXT x=8 y=210 cols=36 scale=1 "GREEN starts AP once hello"

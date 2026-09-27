@@ -1,0 +1,5 @@
+# OpticClick capture chrome (IR PIO is stubbed under HOST_TEST).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "OpticClick"}
+{"cmd": "dump"}
+{"cmd": "quit"}

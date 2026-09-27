@@ -1,0 +1,5 @@
+# GlassBak idle chrome (FatFs dump lives on main CDC, not in ogemu).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "GlassBak"}
+{"cmd": "dump"}
+{"cmd": "quit"}

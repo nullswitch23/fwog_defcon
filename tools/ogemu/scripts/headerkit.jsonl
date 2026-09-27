@@ -1,0 +1,25 @@
+# HeaderKit: safe I2C scan and both pinout pages.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "I2C SCAN"}
+{"cmd": "hk_status", "io_ok": 1, "hiz": 1, "addresses": "19,6B,6F"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "found 3"}
+{"cmd": "expect_text", "contains": "safe Hi-Z"}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "BREAKOUT PINOUT  1 / 3"}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "Use Retia"}
+{"cmd": "press", "btn": "gray"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "gray"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "SIDE HEADER - FACE VIEW"}
+{"cmd": "expect_text", "contains": "4 VPIN -> 6"}
+{"cmd": "dump"}
+{"cmd": "quit"}

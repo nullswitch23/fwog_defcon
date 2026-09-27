@@ -1,0 +1,12 @@
+TEXT 11 overlay line(s)
+TEXT x=8 y=8 cols=16 scale=2 "PingHalo"
+TEXT x=8 y=56 cols=36 scale=1 "waiting for Bottlenose"
+TEXT x=8 y=76 cols=36 scale=1 "YELLOW flashes 115200 image"
+TEXT x=8 y=96 cols=36 scale=1 "unplug USB-C, hold BOOT,"
+TEXT x=8 y=112 cols=36 scale=1 "tap RESET, GREEN while held"
+TEXT x=8 y=156 cols=36 scale=1 "rxb=0"
+TEXT x=8 y=210 cols=36 scale=1 "GREEN starts scan once hello"
+TEXT x=8 y=210 cols=36 scale=1 ""
+TEXT x=8 y=48 cols=36 scale=1 "BLE scan  all  1 heard"
+TEXT x=8 y=68 cols=40 scale=1 "> -42 A AirTag FindMy?"
+TEXT x=8 y=210 cols=48 scale=1 "GRN freeze  BLU pin  hold library  YEL filt"

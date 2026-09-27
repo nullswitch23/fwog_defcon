@@ -1,0 +1,28 @@
+wiliOGbsp — FreeWili OG Board Support Package
+Copyright (c) 2026 Dave Robins
+https://intrepidcs.com/
+
+DUAL LICENSED. See LICENSE for the full terms.
+
+  Targeting FreeWili hardware      -> FreeWili Hardware License (MIT-style,
+                                      free of charge). LICENSE, Section A.
+  Targeting any other hardware     -> Commercial license required.
+                                      LICENSE, Section B.
+
+The free option uses MIT text plus a field-of-use condition, so it is NOT the
+MIT License and NOT open source. Please do not describe it as either.
+
+Third-party software bundled here keeps its own, more permissive licenses and
+is NOT subject to the hardware condition:
+
+  - FatFs (bsp/main_cpu/fs/ff/)
+    Copyright (C) 2022, ChaN — BSD-1-Clause
+
+  - CIC decimator (bsp/common/dsp/cic.{c,h}), adapted from wilibsp
+    Copyright (c) 2026 Dave Robins — MIT
+
+  - Pico SDK board header (bsp/boards/freewili_og.h)
+    Copyright (c) Raspberry Pi (Trading) Ltd. — BSD-3-Clause
+
+Full details, including components deliberately NOT bundled, are in
+THIRD-PARTY-NOTICES.md.

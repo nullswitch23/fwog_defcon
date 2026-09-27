@@ -1,0 +1,11 @@
+TEXT 10 overlay line(s)
+TEXT x=8 y=10 cols=16 scale=2 "OpticClick"
+TEXT x=8 y=48 cols=40 scale=1 "CAPTURE  —  IR off"
+TEXT x=8 y=72 cols=40 scale=1 "slot 1 / 24  load..."
+TEXT x=8 y=96 cols=40 scale=1 "empty"
+TEXT x=8 y=112 cols=40 scale=1 " "
+TEXT x=8 y=136 cols=40 scale=1 "GRN tap cap  hold label"
+TEXT x=8 y=152 cols=40 scale=1 "YEL tap replay (loads PHY)"
+TEXT x=8 y=168 cols=40 scale=1 "GRY hold save  BLU hold PHY"
+TEXT x=8 y=184 cols=40 scale=1 "GRY/RED slot  BLU tap library"
+TEXT x=8 y=220 cols=40 scale=1 "Your gear. TSOP is 38 kHz."

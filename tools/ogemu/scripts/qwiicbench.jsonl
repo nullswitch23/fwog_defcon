@@ -1,0 +1,18 @@
+# QwiicBench: chrome plus a fake BME280 on the link (no real I2C).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "QwiicBench"}
+{"cmd": "expect_text", "contains": "GRN rescan"}
+{"cmd": "qg_status", "io_ok": 1, "name": "BME280", "val": "21.50C", "plot": 215}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "1 on bus"}
+{"cmd": "expect_text", "contains": "BME280"}
+{"cmd": "expect_text", "contains": "21.50C"}
+{"cmd": "qg_status", "io_ok": 1, "name": "0x19", "val": "present", "plot": 0}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "0x19"}
+{"cmd": "hold", "btn": "gray", "ms": 800}
+{"cmd": "release", "btn": "gray"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "GRN tap add"}
+{"cmd": "dump"}
+{"cmd": "quit"}

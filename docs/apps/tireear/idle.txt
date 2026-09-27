@@ -1,0 +1,9 @@
+TEXT 8 overlay line(s)
+TEXT x=8 y=8 cols=18 scale=2 "TireEar"
+TEXT x=8 y=210 cols=40 scale=1 "YEL freq  BLU ASK/FSK  yours only"
+TEXT x=8 y=48 cols=40 scale=1 "315.00 NA  ASK  listen"
+TEXT x=8 y=72 cols=40 scale=1 "RSSI +0  last +0 dBm  0 ms"
+TEXT x=8 y=96 cols=40 scale=1 "bursts 0  (shape only, not OEM psi)"
+TEXT x=8 y=48 cols=40 scale=1 "433.92 EU  ASK  BURST"
+TEXT x=8 y=72 cols=40 scale=1 "RSSI -55  last -40 dBm  8 ms"
+TEXT x=8 y=96 cols=40 scale=1 "bursts 3  (shape only, not OEM psi)"

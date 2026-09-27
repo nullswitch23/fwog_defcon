@@ -1,0 +1,32 @@
+# BandScope: synthetic BS_MSG_ST so peak Hz / dBm / top-5 are on the panel.
+# Titles age out of the overlay ring; expect only repainted info/hit lines.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "waiting for main"}
+{"cmd": "bs_status", "band": 1, "peak_dbm": -52, "peak_hz": 430000000}
+{"cmd": "tick", "ms": 40}
+{"cmd": "bs_status", "band": 1, "peak_dbm": -60, "peak_hz": 400000000}
+{"cmd": "tick", "ms": 40}
+{"cmd": "bs_status", "band": 1, "peak_dbm": -48, "peak_hz": 433920000}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "387-464"}
+{"cmd": "expect_text", "contains": "peak -48 dBm"}
+{"cmd": "expect_text", "contains": "433.92 MHz"}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "FREEZE"}
+{"cmd": "expect_text", "contains": "mark -48 dBm"}
+{"cmd": "hold", "btn": "green", "ms": 700}
+{"cmd": "tick", "ms": 20}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "mine"}
+{"cmd": "expect_text", "contains": "LIVE"}
+{"cmd": "press", "btn": "yellow"}
+{"cmd": "tick", "ms": 30}
+{"cmd": "release", "btn": "yellow"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "mark"}
+{"cmd": "dump", "path": "docs/apps/bandscope/survey.png"}
+{"cmd": "quit"}

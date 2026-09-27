@@ -1,0 +1,12 @@
+TEXT 11 overlay line(s)
+TEXT x=8 y=10 cols=24 scale=2 "TONEBOX  DTMF"
+TEXT x=8 y=48 cols=26 scale=2 "1"
+TEXT x=8 y=80 cols=40 scale=1 "697 + 1209 Hz   180 ms"
+TEXT x=8 y=96 cols=40 scale=1 "dual tone  (8 kHz DAC)"
+TEXT x=8 y=112 cols=40 scale=1 " "
+TEXT x=8 y=128 cols=40 scale=1 " "
+TEXT x=8 y=148 cols=40 scale=1 "1 / 16"
+TEXT x=8 y=172 cols=40 scale=1 "GRAY/RED  item     BLUE cat"
+TEXT x=8 y=188 cols=40 scale=1 "GREEN     play     (stop if busy)"
+TEXT x=8 y=212 cols=40 scale=1 "Into a speaker. Not a telephone."
+TEXT x=8 y=226 cols=40 scale=1 "DTMF/C5 named. No seize sequence."

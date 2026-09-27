@@ -1,0 +1,11 @@
+# PingHalo: wait screen, then a synthetic Apple ADV once hello arrives.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "PingHalo"}
+{"cmd": "expect_text", "contains": "waiting for Bottlenose"}
+{"cmd": "expect_text", "contains": "YELLOW flashes 115200 image"}
+{"cmd": "ph_status", "hello": 1, "scan": 1, "rssi": -42, "apple": 1, "name": "AirTag"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "AirTag"}
+{"cmd": "expect_text", "contains": "FindMy?"}
+{"cmd": "dump"}
+{"cmd": "quit"}

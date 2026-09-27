@@ -1,0 +1,4 @@
+TEXT 3 overlay line(s)
+TEXT x=8 y=6 cols=20 scale=2 "MODE HIZ"
+TEXT x=8 y=28 cols=38 scale=1 "Waiting"
+TEXT x=40 y=120 cols=18 scale=1 "Nothing to display"

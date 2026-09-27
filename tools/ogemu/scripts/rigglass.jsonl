@@ -1,0 +1,14 @@
+# RigGlass: host gauges with now / 2m / 10m.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "RigGlass"}
+{"cmd": "rg_status", "host": "DESK", "cpu": "42,38,31", "ram": "55,50,48", "net": "12,8,5", "gpu": "30,22,18", "tmp": "64,61,58"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "DESK"}
+{"cmd": "expect_text", "contains": "CPU"}
+{"cmd": "expect_text", "contains": "42%"}
+{"cmd": "expect_text", "contains": "NET"}
+{"cmd": "expect_text", "contains": "GPU"}
+{"cmd": "expect_text", "contains": "TMP"}
+{"cmd": "expect_text", "contains": "64C"}
+{"cmd": "dump"}
+{"cmd": "quit"}

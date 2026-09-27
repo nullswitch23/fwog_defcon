@@ -1,0 +1,14 @@
+[
+  {
+    "type": "string",
+    "text": "hello from hostdeck\n"
+  },
+  {
+    "type": "command",
+    "cmd": "echo hostdeck"
+  },
+  {
+    "type": "macro",
+    "chord": "Ctrl+S"
+  }
+]

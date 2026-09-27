@@ -1,0 +1,9 @@
+; 8n1, 8 PIO cycles per bit. clkdiv = clk_sys / (8 * baud).
+; Same timing as bsp/main_cpu/bottlenose/esp_rom_uart.pio rom_rx.
+
+.program tg_rx
+    wait 0 pin 0
+    set x, 7 [10]
+bitloop:
+    in pins, 1
+    jmp x-- bitloop [6]

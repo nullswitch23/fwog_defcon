@@ -1,0 +1,16 @@
+; 8n1 at 8 PIO cycles per bit. clkdiv = clk_sys / (8 * baud).
+
+.program rom_tx
+.side_set 1 opt
+    pull     side 1 [7]
+    set x, 7 side 0 [7]
+bitloop:
+    out pins, 1
+    jmp x-- bitloop [6]
+
+.program rom_rx
+    wait 0 pin 0
+    set x, 7 [10]
+bitloop:
+    in pins, 1
+    jmp x-- bitloop [6]

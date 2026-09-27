@@ -1,0 +1,36 @@
+FREE-WILi:
+  label: FREE-WILi
+  permalink: /FREE-WILi
+  description: Make Embedded Systems Fun Again !
+mhacks:
+  label: Mhacks
+  permalink: /mhacks
+  description: mhacks
+hackathon:
+  label: Hackathon
+  permalink: /hackathon
+  description: hackathon
+student project:
+  label: Student Project
+  permalink: /studentproject
+  description: studentproject
+SpartaHack X:
+  label: SpartaHack X
+  permalink: /spartahack-x
+  description: spartahack-x
+GrizzHacks 7:
+  label: GrizzHacks 7
+  permalink: /grizzhacks7
+  description: grizzhacks7
+Hack Dearborn:
+  label: Hack Dearborn
+  permalink: /hackdearborn
+  description: hackdearborn
+SpartaHack 11:
+  label: SpartaHack 11
+  permalink: /spartahack-11
+  description: SpartaHack
+GrizzHacks 8:
+  label: GrizzHacks 8
+  permalink: /grizzhacks8
+  description: grizzhacks8

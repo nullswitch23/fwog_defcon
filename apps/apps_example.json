@@ -1,0 +1,31 @@
+{
+  "apps": [
+    {
+      "slug": "airmaraud",
+      "name": "AirMaraud",
+      "tagline": "2.4 GHz deauth lab via WIFIPROOF: scan targets, arm to TX one frame",
+      "description": "Authorized 2.4 GHz assessment tool on Bottlenose ESP32-C6 via WIFIPROOF UART. Main CPU carries the display image and C6 firmware. On the display: scan in-scope APs and clients, arm a target for deauth/disassoc TX.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/freewili/wiliOGbsp",
+      "category": "Apps",
+      "tags": [
+        "wifi",
+        "radio",
+        "deauth",
+        "802.11",
+        "management"
+      ],
+      "version": "001",
+      "updated": "2026-09-16",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "url": "https://docs.freewili.com/og-apps/uf2/airmaraud_main.uf2",
+          "sha256": "3dd4f8f6fa0127fb359902f95c1fcfe1a8c157478fa07bd88869d2ea35156f91",
+          "size": 3463168
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+TEXT 7 overlay line(s)
+TEXT x=8 y=8 cols=18 scale=2 "TalkClip"
+TEXT x=8 y=188 cols=40 scale=1 "GREEN arm   YELLOW force clip"
+TEXT x=8 y=204 cols=40 scale=1 "GRAY tap thr  hold T9  BLUE hang"
+TEXT x=8 y=220 cols=40 scale=1 "v006: hang 0/2/10/60s  T9 last CLIP"
+TEXT x=200 y=12 cols=10 scale=2 "IDLE"
+TEXT x=8 y=56 cols=40 scale=1 "rms     0  thr   400  hang 2s"
+TEXT x=8 y=168 cols=40 scale=1 "no clip yet"

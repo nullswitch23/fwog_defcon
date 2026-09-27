@@ -1,0 +1,5 @@
+# TalkClip idle VAD chrome.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "TalkClip"}
+{"cmd": "dump"}
+{"cmd": "quit"}

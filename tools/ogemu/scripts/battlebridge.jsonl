@@ -1,0 +1,18 @@
+# BattleBridge: waiting, arena lobby, and Wi-Fi join QR.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "BattleBridge"}
+{"cmd": "expect_text", "contains": "waiting for Bottlenose"}
+{"cmd": "bb_status", "hello": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "arena AP off"}
+{"cmd": "bb_status", "hello": 1, "game_on": 1, "players": 4, "phase": 2, "tick": 1842, "heap_k": 231, "step": 8, "ssid": "FWOG-arena", "pass": "K7mN2pQx", "bots": 2, "clock": 87}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "clock 87s"}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "scan Wi-Fi"}
+{"cmd": "expect_text", "contains": "GRAY new pass"}
+{"cmd": "dump"}
+{"cmd": "quit"}

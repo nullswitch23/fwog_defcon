@@ -1,0 +1,11 @@
+TEXT 10 overlay line(s)
+TEXT x=8 y=8 cols=18 scale=2 "MicScope"
+TEXT x=8 y=204 cols=40 scale=1 "GREEN freeze   GRAY hold quiet cal"
+TEXT x=8 y=220 cols=40 scale=1 "YEL/BLU cursor  RED clr  6s off"
+TEXT x=8 y=48 cols=40 scale=1 "rms     0  peak     0     0 Hz"
+TEXT x=8 y=64 cols=40 scale=1 "hold GRAY in a quiet room"
+TEXT x=8 y=80 cols=40 scale=1 "bar 01   125 Hz  hold 0"
+TEXT x=8 y=48 cols=40 scale=1 "rms   400  peak   400  3968 Hz"
+TEXT x=8 y=48 cols=40 scale=1 "~ 35 dB SPL  peak   400  3968 Hz"
+TEXT x=8 y=64 cols=40 scale=1 "PDM 8 kHz  quiet=~35 dB SPL"
+TEXT x=8 y=80 cols=40 scale=1 "bar 01   125 Hz  +0 dB"

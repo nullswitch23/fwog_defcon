@@ -1,0 +1,16 @@
+# MicScope smoke: the first script that proves a wired app CONSUMES mic_rms
+# rather than only DIAG-ing it. Button lines are chrome-once; RMS is repainted
+# until a quiet cal switches the headline to dB SPL.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "GREEN freeze"}
+{"cmd": "expect_text", "contains": "GRAY hold quiet cal"}
+{"cmd": "expect_text", "contains": "hold GRAY in a quiet room"}
+{"cmd": "expect_text", "contains": "rms     0  peak     0"}
+{"cmd": "mic_rms", "rms": 2400}
+{"cmd": "tick", "ms": 20}
+{"cmd": "expect_text", "contains": "rms  2400  peak  2400"}
+{"cmd": "mic_rms", "rms": 9000}
+{"cmd": "tick", "ms": 20}
+{"cmd": "expect_text", "contains": "rms  9000  peak  9000"}
+{"cmd": "dump"}
+{"cmd": "quit"}

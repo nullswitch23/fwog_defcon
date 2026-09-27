@@ -1,0 +1,11 @@
+# TireEar v004: OEM decode + scan/review chrome
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "TireEar"}
+{"cmd": "expect_text", "contains": "315 NA"}
+{"cmd": "expect_text", "contains": "YEL 315/433"}
+{"cmd": "expect_text", "contains": "GRN scan"}
+{"cmd": "te_status", "preset": 0, "rssi": -55, "last_rssi": -40, "bursts": 2, "in_burst": 0, "last_ms": 8}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "listen"}
+{"cmd": "dump"}
+{"cmd": "quit"}

@@ -1,0 +1,14 @@
+# InertialTrail: idle chrome, then hold-still cal.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "InertialTrail"}
+{"cmd": "expect_text", "contains": "GREEN  start"}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "hold still"}
+{"cmd": "tick", "ms": 400}
+{"cmd": "expect_text", "contains": "stride"}
+{"cmd": "dump"}
+{"cmd": "quit"}

@@ -1,0 +1,10 @@
+# Synthetic fan-remote OOK edge timings in microseconds (high/low).
+# Not a real capture — enough for the world bus to load a list.
+400
+800
+400
+800
+400
+1200
+400
+800

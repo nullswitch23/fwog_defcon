@@ -1,0 +1,19 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 21, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "target",
+      "displayName": "FreeWili OG target (RP2040, both CPUs)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "PICO_SDK_PATH": "$env{USERPROFILE}/.pico-sdk/sdk/2.3.0",
+        "PICO_TOOLCHAIN_PATH": "$env{USERPROFILE}/.pico-sdk/toolchain/15_2_Rel1",
+        "CMAKE_MAKE_PROGRAM": "$env{USERPROFILE}/.pico-sdk/ninja/v1.13.2/ninja.exe"
+      }
+    }
+  ],
+  "buildPresets": [{ "name": "target", "configurePreset": "target" }]
+}

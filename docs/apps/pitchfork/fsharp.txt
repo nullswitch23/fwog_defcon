@@ -1,0 +1,12 @@
+TEXT 11 overlay line(s)
+TEXT x=8 y=6 cols=16 scale=2 "PitchFork"
+TEXT x=8 y=196 cols=40 scale=1 "bar = cents vs A440. green = in tune"
+TEXT x=8 y=212 cols=40 scale=1 "hold a note 1m from mic   RED 6s off"
+TEXT x=8 y=36 cols=6 scale=6 "----"
+TEXT x=8 y=92 cols=10 scale=3 "QUIET"
+TEXT x=8 y=124 cols=36 scale=1 "rms 0  wait for a tone"
+TEXT x=8 y=144 cols=8 scale=2 "FLAT"
+TEXT x=200 y=144 cols=8 scale=2 "SHARP"
+TEXT x=8 y=36 cols=6 scale=6 "F#4"
+TEXT x=8 y=92 cols=10 scale=3 "SHARP"
+TEXT x=8 y=124 cols=36 scale=1 "372 Hz   +11 c"

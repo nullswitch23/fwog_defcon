@@ -1,0 +1,29 @@
+# Headless MicScope captures (ogemu, not the board).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "GRAY hold quiet cal"}
+{"cmd": "expect_text", "contains": "hold GRAY in a quiet room"}
+{"cmd": "dump", "path": "docs/apps/micscope/idle.png"}
+
+{"cmd": "mic_rms", "rms": 400}
+{"cmd": "tick", "ms": 40}
+{"cmd": "press", "btn": "gray"}
+{"cmd": "tick", "ms": 800}
+{"cmd": "release", "btn": "gray"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "dB SPL"}
+{"cmd": "expect_text", "contains": "~ 35"}
+{"cmd": "dump", "path": "docs/apps/micscope/cal.png"}
+
+{"cmd": "mic_tone", "hz": 1000, "rms": 9000}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "1000 Hz"}
+{"cmd": "expect_text", "contains": "dB SPL"}
+{"cmd": "dump", "path": "docs/apps/micscope/tone.png"}
+
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "FREEZE"}
+{"cmd": "dump", "path": "docs/apps/micscope/freeze.png"}
+{"cmd": "quit"}

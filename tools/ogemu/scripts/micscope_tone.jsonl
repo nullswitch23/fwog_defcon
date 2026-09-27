@@ -1,0 +1,7 @@
+# MicScope FFT: mic_tone is a real sine. mic_rms square wave pins at 3968 Hz.
+{"cmd": "tick", "ms": 200}
+{"cmd": "mic_tone", "hz": 1000, "rms": 9000}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "1000 Hz"}
+{"cmd": "dump"}
+{"cmd": "quit"}

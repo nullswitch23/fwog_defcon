@@ -1,0 +1,10 @@
+# FobReplay: unused-code queue chrome. Does not model a jammed receiver.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "waiting for main CPU"}
+{"cmd": "fob_status", "state": 4, "rssi": -70, "slots": 2, "unused": 2, "edges": 80}
+{"cmd": "tick", "ms": 250}
+{"cmd": "expect_text", "contains": "ready"}
+{"cmd": "expect_text", "contains": "unused 2"}
+{"cmd": "expect_text", "contains": "RSSI -70 dBm"}
+{"cmd": "dump"}
+{"cmd": "quit"}

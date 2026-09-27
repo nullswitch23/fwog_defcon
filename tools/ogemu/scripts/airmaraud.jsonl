@@ -1,0 +1,11 @@
+# AirMaraud: wait screen, then a synthetic ON scan with SSIDs.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "AirMaraud"}
+{"cmd": "expect_text", "contains": "waiting for Bottlenose"}
+{"cmd": "am_status", "hello": 1, "wp_on": 1, "aps": 1, "channel": 6, "log": "[WIFIPROOF] READY ch=6"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "lab-6"}
+{"cmd": "expect_text", "contains": "a4:83:e7:01:00:01"}
+{"cmd": "expect_text", "contains": "YEL FRZ"}
+{"cmd": "dump"}
+{"cmd": "quit"}

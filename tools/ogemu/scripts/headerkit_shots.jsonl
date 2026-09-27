@@ -1,0 +1,28 @@
+# Headless HeaderKit screen captures (ogemu, not physical hardware).
+{"cmd": "tick", "ms": 200}
+{"cmd": "hk_status", "io_ok": 1, "hiz": 1, "addresses": "19,6B,6F"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "safe Hi-Z"}
+{"cmd": "dump", "path": "docs/apps/headerkit/scan.png"}
+
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "BREAKOUT PINOUT  1 / 3"}
+{"cmd": "dump", "path": "docs/apps/headerkit/pinout1.png"}
+
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "Use Retia"}
+{"cmd": "dump", "path": "docs/apps/headerkit/pinout2.png"}
+
+{"cmd": "press", "btn": "gray"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "gray"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "SIDE HEADER - FACE VIEW"}
+{"cmd": "dump", "path": "docs/apps/headerkit/physical.png"}
+{"cmd": "quit"}

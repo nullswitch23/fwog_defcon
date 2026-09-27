@@ -1,0 +1,19 @@
+# LanFerry: wait, AP, multi-file mailbox, WIFI QR.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "LanFerry"}
+{"cmd": "expect_text", "contains": "waiting for Bottlenose"}
+{"cmd": "lf_status", "hello": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "AP off"}
+{"cmd": "lf_status", "hello": 1, "ap_on": 1, "ssid": "FWOG-ferry", "pass": "K7mN2pQx", "nfiles": 3, "bytes": 12288, "file": "notes.txt", "clients": 2}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "3 files"}
+{"cmd": "expect_text", "contains": "12/124K"}
+{"cmd": "expect_text", "contains": "K7mN2pQx"}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "scan to join"}
+{"cmd": "dump"}
+{"cmd": "quit"}

@@ -1,0 +1,317 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #ef393e;
+  --ifm-color-primary-dark: #ed1e23;
+  --ifm-color-primary-darker: #e91319;
+  --ifm-color-primary-darkest: #c00f14;
+  --ifm-color-primary-light: #f15459;
+  --ifm-color-primary-lighter: #f26266;
+  --ifm-color-primary-lightest: #f68b8e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #ef393e;
+  --ifm-color-primary-dark: #ed1e23;
+  --ifm-color-primary-darker: #e91319;
+  --ifm-color-primary-darkest: #c00f14;
+  --ifm-color-primary-light: #f15459;
+  --ifm-color-primary-lighter: #f26266;
+  --ifm-color-primary-lightest: #f68b8e;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+}
+
+
+/* .iconExternalLink_node_modules-\@docusaurus-theme-classic-lib-theme-Icon-ExternalLink-styles-module{
+  display: none;
+} */
+
+.nav-link svg{
+  display: none;
+}
+
+.freewili-link {
+  color: #ef393e;
+}
+
+.dropdown__link:hover {
+  color: #ef393e !important;
+}
+
+/* for footer social icons */
+
+/* src/css/custom.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-links i {
+  font-size: 1.2em;
+}
+
+.x-twitter{
+  height: 16px;
+  width: 16px;
+}
+
+figcaption {
+font-weight: 600;
+font-style: italic;
+}
+
+/* .span-black {
+  color: black;
+    background-color: rgb(255, 255, 255);
+    padding-right: 2px;
+} */
+
+
+/* .docusaurus-theme-light .span-black {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.docusaurus-theme-dark .span-black {
+  background-color: #000000;
+  color: #ffffff;
+} */
+
+/* Apply styles specifically for the Linktree page */
+.buy-now-page, .buy-now-center{
+  text-align: center;
+}
+
+/* Style the profile image */
+.buy-now-page img {
+  /* border-radius: 50%; */
+  width: 400px;
+  height: auto;
+  /* object-fit: cover; */
+  border: 0.1px solid rgba(128, 128, 128, 0.2); 
+  border-radius: 4%;
+}
+
+.buy-now-page div, .buy-now-center div{
+  align-items: center;
+}
+
+.buy-now-center img {
+  border: 0.1px solid rgba(128, 128, 128, 0.2); 
+  border-radius: 4%;
+  max-width: 90px;
+  padding: 10px;
+}
+/* Style the links */
+/* .buy-now-page a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+} */
+
+/* Add hover effect to links */
+/* .buy-now-page a:hover {
+  background-color: #e0e0e0;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #ef393e 
+} */
+
+/* Style social media icons */
+/* .buy-now-page .badge {
+  margin: 5px;
+}
+
+.hash-link {
+  display: none !important;
+}
+
+.buy-now-page ul
+{
+  list-style: none;
+} */
+
+.highlight {
+  /* background-color: #f2f2f2; */
+  font-weight: bold;
+  /* color: #ef393e; */
+  /* border: 2px solid #f3f200; */
+  /* padding: 2px; */
+  /* margin-left: 26px; */
+}
+
+.highlight-app{
+  font-weight: bold;
+  /* padding: 2px; */
+}
+
+.custom-width img{
+  width: 400px;
+}
+
+@media only screen and (max-width: 767px) {
+  .highlight{
+    margin-left: 0px;
+  }
+  .br-mobile{
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .highlight{
+    margin-left: 0px;
+  }
+  .br-mobile{
+    display: none;
+  }
+}
+
+.footerLogoLink_BH7S{
+  opacity: 1 !important;
+}
+
+.github-img img {
+  vertical-align: middle;
+}
+
+.github-img span{
+  font-weight: 600;
+  border: 2px solid;
+  width: 140px;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 2px;
+  border-radius: 1px;
+
+
+}
+.github-img span:hover{
+text-decoration: none;
+font-weight: 900;
+color: #fff;
+border: 2px solid #f2f1f1;
+background-color: #ef393e;
+ border-radius: 2px;
+
+}
+/* ----------------------------------------------- */
+
+.carousel-container {
+  max-width: 800px; /* Adjust width as needed */
+  margin: auto;
+}
+
+.custom-carousel {
+  height: 650px; /* Set the height of the entire carousel */
+}
+
+.carousel-slide {
+  height: 650px; /* Ensure each slide is 500px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-slide img {
+  max-height: 100%;
+  object-fit: cover; /* Ensures images fit properly */
+}
+
+
+/* ------------------------------------------------------------------------------- */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  color: inherit;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: inherit; 
+  /* transform: translateY(-2px); */
+}
+
+.icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.icon p {
+  margin-bottom: 0;
+}
+
+/* .card svg {
+  width: 140px;   
+  height: 140px;
+} */
+
+.card-body h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-body p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Responsive: 2-column on medium, 3-column on large screens */
+@media (min-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards-grid {
+    /* grid-template-columns: repeat(3, 1fr); */
+     grid-template-columns: 1fr 1fr; /* 2 cards per row */
+  }
+}

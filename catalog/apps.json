@@ -1,0 +1,5676 @@
+{
+  "apps": [
+    {
+      "slug": "airmaraud",
+      "name": "AirMaraud",
+      "tagline": "Bottlenose 2.4 GHz lab: scan APs, arm to TX one deauth/disassoc",
+      "description": "Main half: UART1 WIFIPROOF console to Bottlenose C6 for AirMaraud. On the display: scan beacons/probes, freeze, sweep 1\u201314, then arm one deauth or disassoc. Yellow hold ROM-flashes fwog_c6.bin. Assessment-class; TX is unproven on this C6.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Apps",
+      "tags": [
+        "bottlenose",
+        "wifi",
+        "lab",
+        "add-on"
+      ],
+      "version": "010",
+      "updated": "2026-09-21",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "airmaraud_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/airmaraud_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Scan",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Start WIFIPROOF on the current channel (or stop / thaw when on)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Sweep channels 1\u201314, collect APs (up to 24)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Idle: next channel 1\u201314. Radio on: freeze / thaw scan",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "ROM-flash fwog_c6.bin from this UF2 (BOOT, RESET, Green)",
+                "switchMenu": "flash-hold",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Idle: DEAUTH \u2194 DASSOC. Radio on: fire one armed frame at the cursor",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Cursor up",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Cursor down",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flash-hold",
+          "label": "Flash C6",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Begin ROM write of fwog_c6.bin after BOOT hold + RESET on the Bottlenose",
+                "switchMenu": "flashing"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Cancel flash helper",
+                "switchMenu": "main"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flashing",
+          "label": "Writing C6",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "bandscope",
+      "name": "BandScope",
+      "tagline": "Sub-GHz RSSI sweep; freeze+scroll peaks; owned marks; history strip",
+      "description": "Main half: CC1101 RSSI sweep and peak-hunt for BandScope. On the display: freeze, YEL/BLU jump peaks, GRN hold owned marks, history strip, persist hold/top-5. Receive-only \u2014 not an SDR waterfall.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Sub-GHz",
+      "tags": [
+        "subghz",
+        "rssi",
+        "cc1101",
+        "native"
+      ],
+      "version": "004",
+      "updated": "2026-09-21",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "bandscope_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/bandscope_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "sweep",
+      "menus": [
+        {
+          "id": "sweep",
+          "label": "Sweep",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Freeze / unfreeze this sweep",
+                "switchMenu": "freeze"
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Toggle-mark cursor peak as owned (mine / lab / fob / wx)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous band (300\u2013348 / 387\u2013464 / 779\u2013928 MHz)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next band",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Hunt all three bands for the loudest bins",
+                "switchMenu": "hunt"
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Clear peak-hold, history strip, owned marks, and top-5",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "freeze",
+          "label": "Frozen",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Unfreeze; resume sweep",
+                "switchMenu": "sweep"
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Toggle-mark the frozen cursor as owned",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous local peak (hold to crawl)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Crawl previous peaks",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next local peak (hold to crawl)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Crawl next peaks",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Hunt",
+                "switchMenu": "hunt"
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Clear peak-hold, history strip, owned marks, and top-5",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "hunt",
+          "label": "Hunt",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Freeze",
+                "switchMenu": "freeze"
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Toggle-mark cursor as owned",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous band; exit hunt into a live sweep",
+                "switchMenu": "sweep"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next band; exit hunt into a live sweep",
+                "switchMenu": "sweep"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Return to a live sweep",
+                "switchMenu": "sweep"
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Clear peak-hold, history strip, owned marks, and top-5",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "battlebridge",
+      "name": "BattleBridge",
+      "tagline": "Four-browser C6-hosted arena race/battle: gates, PvP, enemies",
+      "description": "Main half: low-rate lobby/status control and C6 ROM flash for BattleBridge. On the display: FWOG-arena lobby, QR, 2v2, bot skill; Yellow hold ROM-flashes fwog_c6.bin. Four browsers play on the C6 at 192.168.4.1.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Apps",
+      "tags": [
+        "bottlenose",
+        "wifi",
+        "game",
+        "add-on"
+      ],
+      "version": "001",
+      "updated": "2026-09-22",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "battlebridge_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/battlebridge_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Lobby",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Start / stop the FWOG-arena AP once Bottlenose has said hello",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Open the C6 flash helper",
+                "switchMenu": "flash-hold"
+              },
+              "hold": {
+                "ms": 700,
+                "action": "ROM-flash fwog_c6.bin from this UF2 (BOOT, RESET, Green)",
+                "switchMenu": "flash-hold",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Show / hide the Wi-Fi join QR",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Toggle 2v2",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Force lobby into play (or rematch)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Lobby: cycle bot skill off/sleepy/normal/melee. QR view: mint a new Wi-Fi passphrase",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flash-hold",
+          "label": "Flash C6",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Begin ROM write of fwog_c6.bin after BOOT hold + RESET on the Bottlenose",
+                "switchMenu": "flashing"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Cancel flash helper",
+                "switchMenu": "main"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flashing",
+          "label": "Writing C6",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "bledeck",
+      "name": "BleDeck",
+      "tagline": "BLE HID remote: four pages, pairing lock, pack %",
+      "description": "Main half: UART1 to Bottlenose HID and C6 ROM flash for BleDeck. On the display: D-pad/media/talk/desk pages, pairing lock, pack %; Yellow hold ROM-flashes fwog_c6.bin. Not a HID injector.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Apps",
+      "tags": [
+        "bottlenose",
+        "ble",
+        "hid",
+        "add-on"
+      ],
+      "version": "004",
+      "updated": "2026-09-21",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "bledeck_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/bledeck_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "dpad",
+      "menus": [
+        {
+          "id": "dpad",
+          "label": "D-pad",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "HID OK (down/up to the paired peer)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "HID Left",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "ROM-flash fwog_c6.bin from this UF2 (BOOT, RESET, Green)",
+                "switchMenu": "flash-hold",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "HID Right",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Latch next HID page (Media)",
+                "switchMenu": "media",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "HID Up",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Wipe C6 NVS bond and open pairing again",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "HID Down",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "media",
+          "label": "Media",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "HID Play (down/up to the paired peer)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "HID Vol\u2212",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "ROM-flash fwog_c6.bin from this UF2 (BOOT, RESET, Green)",
+                "switchMenu": "flash-hold",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "HID Vol+",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Latch next HID page (Talk)",
+                "switchMenu": "talk",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "HID Next",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Wipe C6 NVS bond and open pairing again",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "HID Prev",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "talk",
+          "label": "Talk",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "HID F5 (down/up to the paired peer)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "HID Esc",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "ROM-flash fwog_c6.bin from this UF2 (BOOT, RESET, Green)",
+                "switchMenu": "flash-hold",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "HID PgDn",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Latch next HID page (Desk)",
+                "switchMenu": "desk",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "HID PgUp",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Wipe C6 NVS bond and open pairing again",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "HID B",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "desk",
+          "label": "Desk",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "HID Mute (down/up to the paired peer)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "HID Bri\u2212",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "ROM-flash fwog_c6.bin from this UF2 (BOOT, RESET, Green)",
+                "switchMenu": "flash-hold",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "HID Bri+",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Latch next HID page (D-pad)",
+                "switchMenu": "dpad",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "HID PrtSc",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Wipe C6 NVS bond and open pairing again",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "HID Home",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flash-hold",
+          "label": "Flash C6",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Begin ROM write of fwog_c6.bin after BOOT hold + RESET on the Bottlenose",
+                "switchMenu": "flashing"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Cancel flash helper",
+                "switchMenu": "main"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flashing",
+          "label": "Writing C6",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "chirpmail",
+      "name": "ChirpMail",
+      "tagline": "Two OGs; 24 canned + T9; ACK PIN; host helper; 433.92",
+      "description": "Main half: CC1101 2-FSK TX/RX and FatFs /chirpmail/CANNED.TXT. On the display: 24 canned slots (host helper or T9 override), ACK PIN mint, inbox of four. Green TX flashes amber and ticks sent. Two OGs, 433.92 MHz ~10 dBm; not encrypted, not a mesh.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Sub-GHz",
+      "tags": [
+        "subghz",
+        "cc1101",
+        "packet",
+        "native"
+      ],
+      "version": "007",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "chirpmail_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/chirpmail_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Mail",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "TX compose; amber LED flash; sent++",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous of 24 canned slots",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next of 24 canned slots",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": {
+                "ms": 750,
+                "action": "T9 compose; Green hold saves into the current slot",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "T9 compose",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "diskglass",
+      "name": "DiskGlass",
+      "tagline": "FatFs library: T9 IR compose, loop WASM, delete, IR/QR",
+      "description": "Main half: FatFs, T9 notes to /inbox, wasm3, ASK replay. On the display: browse the volume, T9 IR compose, loop WASM, delete, IR send / QR. Native last-8 MB FatFs.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Storage",
+      "tags": [
+        "fatfs",
+        "wasm",
+        "ir",
+        "native"
+      ],
+      "version": "009",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "diskglass_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/diskglass_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "browse",
+      "menus": [
+        {
+          "id": "browse",
+          "label": "Library",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Open the highlighted file",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Confirm-delete the highlighted file",
+                "switchMenu": "delete"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "T9 compose a note into /inbox",
+                "switchMenu": "t9"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "IR listen for a note",
+                "switchMenu": "ir",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Cursor up",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Cursor down",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "delete",
+          "label": "Delete",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Delete this file",
+                "switchMenu": "browse"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Cancel",
+                "switchMenu": "browse"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "wasm",
+          "label": "WASM",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Run once",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Loop this WASM",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": null,
+              "hold": {
+                "ms": 750,
+                "action": "Stop loop / delete",
+                "switchMenu": "browse",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "text",
+          "label": "Note",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Show QR of this note",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Back to library",
+                "switchMenu": "browse"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": {
+                "ms": 750,
+                "action": "IR send this note",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Scroll up",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Scroll down",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "audio",
+          "label": "Play",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play / stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Back to library",
+                "switchMenu": "browse"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "ook",
+          "label": "OOK",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Back to library",
+                "switchMenu": "browse"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Replay OOK, 4 ASK frames then stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "T9 compose",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "ir",
+          "label": "IR listen",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Cancel IR listen",
+                "switchMenu": "browse"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "emsdesk",
+      "name": "EmsDesk",
+      "tagline": "Landing: seven ISM/IR tiles, one radio live",
+      "description": "Main half: CC1101 mux; FatFs for ISM/Fob/Chirp/Optic; shared 20 KB capture. On the display: two PinDesk-scale pages; Gray tap up, Red tap down, Green opens; Yellow/Green/Gray hold home. Member holds remapped to BLUE. Landing SEL 0x5F.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Lab",
+      "tags": [
+        "landing",
+        "native",
+        "subghz"
+      ],
+      "version": "004",
+      "updated": "2026-09-27",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "emsdesk_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/emsdesk_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "home",
+      "menus": [
+        {
+          "id": "home",
+          "label": "Home",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Open the selected tile",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": {
+                "ms": 700,
+                "action": "Return home from a tile",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous tile (wraps pages)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Return home from a tile",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next tile (wraps pages)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fobreplay",
+      "name": "FobReplay",
+      "tagline": "ASK/OOK capture, T9 8.3 names on /fobreplay, unused-code queue, PREDICT",
+      "description": "Main half: CC1101 capture, T9-named 8.3 FatFs files, queue replay, PREDICT counter/KeeLoq synthesis. On the display: ASK/OOK capture with unused-code queue and PREDICT. Rolling-code fobs reject a previously heard code; there is no jammer.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Sub-GHz",
+      "tags": [
+        "subghz",
+        "cc1101",
+        "ask",
+        "ook",
+        "native"
+      ],
+      "version": "006",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "fobreplay_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/fobreplay_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "single",
+      "menus": [
+        {
+          "id": "single",
+          "label": "SINGLE",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Capture into slot 0 (tap again to abort)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Clear the queue",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Replay last capture, keep it",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Burst unused (no-op if only one slot)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Switch to QUEUE mode",
+                "switchMenu": "queue"
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Radio 0 / 1",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous frequency preset (313.85 / 315 / 433.92 / 868.35 / 915)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "T9 name last capture (8.3)",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next frequency preset",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "queue",
+          "label": "QUEUE",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Capture: append up to 8 unused slots (tap again to abort)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Clear the queue",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Replay oldest unused, then mark it used",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Play every unused slot, oldest first, 80 ms apart",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Cycle mode (QUEUE \u2192 PREDICT)",
+                "switchMenu": "predict"
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Radio 0 / 1",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous frequency preset (313.85 / 315 / 433.92 / 868.35 / 915)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "T9 name last capture (8.3)",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next frequency preset",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "predict",
+          "label": "PREDICT",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Capture (tap again to abort)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Switch predictor CTR \u2194 KeeLoq",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Synthesize + transmit predicted next code",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Transmit predicted code 3\u00d7",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Switch to SINGLE mode",
+                "switchMenu": "single"
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Radio 0 / 1",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous frequency preset (313.85 / 315 / 433.92 / 868.35 / 915)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "T9 name last capture (8.3)",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next frequency preset",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "FOB NAME",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fundesk",
+      "name": "FunDesk",
+      "tagline": "Landing: Trail + TrailRF + VoltPet + PitchFork",
+      "description": "Main half: FatFs /trail /trailrf voltpet.bin; CC1101 mux so TrailRF or VoltPet owns the radios, never both. On the display: four PinDesk-scale tiles; Gray tap up, Red tap down, Green opens; Yellow/Green/Gray hold home. PitchFork AUTO and T9 names are BLUE hold.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Lab",
+      "tags": [
+        "landing",
+        "native"
+      ],
+      "version": "004",
+      "updated": "2026-09-27",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "fundesk_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/fundesk_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "home",
+      "menus": [
+        {
+          "id": "home",
+          "label": "Home",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Open the selected tile",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": {
+                "ms": 700,
+                "action": "Return home from a tile",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous tile",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Return home from a tile",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next tile",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "glassbak",
+      "name": "GlassBak",
+      "tagline": "FatFs dump/restore on main CDC; GUI groups files by app",
+      "description": "Main half: FatFs dump on CDC and PUT restore to original paths. On the display: Green starts the dump; host fsbak --gui Push writes files back. Never open that port at 1200 baud.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Storage",
+      "tags": [
+        "fatfs",
+        "backup",
+        "cdc",
+        "native"
+      ],
+      "version": "001",
+      "updated": "2026-09-25",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "glassbak_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/glassbak_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Dump",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Start FatFs dump on main CDC (FSBK1\u2026)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "headerkit",
+      "name": "HeaderKit",
+      "tagline": "Hi-Z-safe I2C scan plus quick physical side-header pinout",
+      "description": "Main half: Hi-Z-safe breakout I2C scan for HeaderKit. On the display: 3.3 V I2C scan plus three pinout pages and a face-view side-header map. Unrelated buses stay Hi-Z. Not 5 V-tolerant.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Breakout",
+      "tags": [
+        "i2c",
+        "breakout",
+        "native"
+      ],
+      "version": "004",
+      "updated": "2026-09-22",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "headerkit_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/headerkit_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "I2C scan",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Jump to scan page and rescan 3.3 V breakout I2C",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous page (scan / pinout 1\u20132 / face map)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next page",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Jump to physical side-header face view",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hostdeck",
+      "name": "HostDeck",
+      "tagline": "Five-button macros; T9 LCD labels; host helper types CDC chords (no TinyUSB HID)",
+      "description": "Main half: brings the display up so HostDeck can run. On the display: five-button macros for this PC; T9 renames LCD labels only. v003 prints MACRO chords or HOSTDECK payload= on display CDC; tools/hostdeck/ types chords or runs indexed payloads. TinyUSB HID is not enumerated. It is not an injector.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Host",
+      "tags": [
+        "macros",
+        "cdc",
+        "host-helper",
+        "native"
+      ],
+      "version": "003",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "hostdeck_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/hostdeck_main.uf2"
+        }
+      ],
+      "menuSwitch": {
+        "field": "switchMenu",
+        "pattern": "One button hold remaps the other four. HostDeck is the existence proof: hold Yellow 700 ms latches page1, hold Blue 700 ms latches page2. whileHeld is false (pages stick). Future Fn layers use the same switchMenu field with whileHeld true so the layer lasts only while that button is down \u2014 no new keys.",
+        "gestures": [
+          "tap",
+          "hold"
+        ]
+      },
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "page1",
+      "menus": [
+        {
+          "id": "page1",
+          "label": "Page 1",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play/Pause on this PC (host helper)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Mute on this PC (host helper)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Latch page 1 labels (Play / Mute / Copy / Paste / Enter)",
+                "switchMenu": "page1",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Copy (Ctrl+C on this PC)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Latch page 2 labels (Cut / Undo / Save / Tab / Esc)",
+                "switchMenu": "page2",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Paste (Ctrl+V on this PC)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-rename the focused LCD label (chords stay on host JSON)",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Enter (Return on this PC)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "page2",
+          "label": "Page 2",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Cut (Ctrl+X on this PC)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Undo (Ctrl+Z on this PC)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Latch page 1 labels",
+                "switchMenu": "page1",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Save (Ctrl+S on this PC)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Latch page 2 labels",
+                "switchMenu": "page2",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Tab on this PC",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-rename the focused LCD label",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Esc on this PC",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "T9 label",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "inertialtrail",
+      "name": "InertialTrail",
+      "tagline": "Peak-valley pedometer, origin-fixed map, T9 /trail title",
+      "description": "Main half: FatFs /trail CSV writer; optional T9 walk title. On the display: peak-valley pedometer, origin-fixed stride map, Gray-hold T9 title. Not indoor GPS. Leave Bottlenose off.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Sensors",
+      "tags": [
+        "pedometer",
+        "imu",
+        "csv",
+        "fatfs",
+        "native"
+      ],
+      "version": "008",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "inertialtrail_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/inertialtrail_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "pedo",
+      "menus": [
+        {
+          "id": "pedo",
+          "label": "Pedometer",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Idle: start cal. Cal: cancel. Run: stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "While running: lap mark in the CSV",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Idle: switch to map mode",
+                "switchMenu": "map"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Stride \u22125 cm (40\u2013150)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Idle: T9 walk title (empty \u2192 WALKNNNN.CSV)",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Stride +5 cm. Ship flushes /trail first",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "map",
+          "label": "Map",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Idle: start cal. Cal: cancel. Run: stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "While running: enter scroll",
+                "switchMenu": "map-scroll"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Idle: switch to pedometer",
+                "switchMenu": "pedo"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": {
+                "ms": 750,
+                "action": "Idle: T9 walk title",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "map-scroll",
+          "label": "Map scroll",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Leave scroll",
+                "switchMenu": "map"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Pan left",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Pan right",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Pan down",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Pan up",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "Walk title",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "inertialtrailrf",
+      "name": "InertialTrailRF",
+      "tagline": "Dual parked RSSI + steps; T9 /trailrf title",
+      "description": "Main half: dual CC1101 parked RSSI, FatFs /trailrf, optional T9 walk title. On the display: two parked RSSI strips (Gray top / Blue bottom), step clock, Yellow walk marks. Leave Bottlenose off. Not a Wi-Fi wardrive.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Sub-GHz",
+      "tags": [
+        "pedometer",
+        "subghz",
+        "rssi",
+        "csv",
+        "native"
+      ],
+      "version": "009",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "inertialtrailrf_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/inertialtrailrf_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Walk",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Start 1.2 s rest-cal and open /trailrf (cal: cancel; walk: stop)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "While walking: stamp a mark row",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next bottom-park frequency (radio 1)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Next top-park frequency (radio 0)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9 walk title (empty \u2192 TRAILNNNN.CSV)",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Ship flushes /trailrf first",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "Walk title",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "ismburst",
+      "name": "ISMburst",
+      "tagline": "T9 names on FAN/DOOR/SPARE, load BURST*.BIN, ASK+2-FSK decode, hunt, /ismburst",
+      "description": "Main half: CC1101 ASK/2-FSK RX/TX, T9 slot names on /ismburst, BURST archive. On the display: arm, hunt, load BURST*.BIN, ASK+2-FSK decode, owned replay. Gadgets you own only \u2014 not a jammer or car-key tool.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Sub-GHz",
+      "tags": [
+        "subghz",
+        "weather",
+        "ook",
+        "ism",
+        "native"
+      ],
+      "version": "007",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "ismburst_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/ismburst_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Capture",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Arm one shot (tap again to abort while waiting)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Clear the RAM ring (disk store stays)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous park (315 / 433.92 / 868.35 / 915 ASK, then 433.92 / 868.35 2-FSK)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Save current shot, or load next BURST*.BIN if the slot is empty",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next park",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Replay current shot, 4 frames then stop (owned ISM gadgets only)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Page FAN \u2192 DOOR \u2192 SPARE",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 800,
+                "action": "Hunt: auto-rearm until named slots are full",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Name the current FAN/DOOR/SPARE slot (T9)",
+                "switchMenu": "t9"
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "Slot name",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "kithome",
+      "name": "KitHome",
+      "tagline": "Landing: eight live tiles, four per page",
+      "description": "Main half: CC1101 mux, FatFs, wasm3, TalkClip, ToneBox UART1, RigGlass CDC. On the display: eight live tiles, four per page with corner arrows; Gray tap up, Red tap down, Green opens; Yellow/Green/Gray hold home (member holds on BLUE). PDM exclusive MicScope/TalkClip/ToneBox.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Lab",
+      "tags": [
+        "landing",
+        "native"
+      ],
+      "version": "007",
+      "updated": "2026-09-27",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "kithome_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/kithome_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "home",
+      "menus": [
+        {
+          "id": "home",
+          "label": "Home",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Open the selected tile",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous tile",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next tile",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "hostdeck",
+          "label": "HostDeck",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play/Cut (page 1 / 2)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Mute/Undo",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Return home",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Copy/Save",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Latch HostDeck page",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Paste/Tab",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Enter/Esc",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "micscope",
+          "label": "MicScope",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Freeze spectrogram",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": {
+                "ms": 700,
+                "action": "Return home",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": {
+                "ms": 700,
+                "action": "Quiet-room cal",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Clear peak-hold",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "bandscope",
+          "label": "BandScope",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Freeze",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous / next band",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Return home",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next band",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Hunt",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Clear peak-hold",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "glassbak",
+          "label": "GlassBak",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Start FatFs dump on main CDC",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": {
+                "ms": 700,
+                "action": "Return home",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "lanferry",
+      "name": "LanFerry",
+      "tagline": "Bottlenose AP so two of your machines can swap files",
+      "description": "Main half: UART1 to Bottlenose and C6 ROM flash for LanFerry. On the display: Bottlenose AP file-drop, 124K RAM mailbox, live pipe, WIFI QR. Yellow hold ROM-flashes fwog_c6.bin. Gray hold wipes pass+files. Not a rogue AP.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Apps",
+      "tags": [
+        "wifi",
+        "bottlenose",
+        "files",
+        "add-on"
+      ],
+      "version": "006",
+      "updated": "2026-09-22",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "lanferry_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/lanferry_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "AP",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Start / stop the AP once Bottlenose has said hello (SSID FWOG-ferry; password generated on the C6)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Open the C6 flash helper",
+                "switchMenu": "flash-hold"
+              },
+              "hold": {
+                "ms": 700,
+                "action": "ROM-flash fwog_c6.bin from this UF2 (BOOT, RESET, Green)",
+                "switchMenu": "flash-hold",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Show / hide WIFI QR",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": {
+                "ms": 700,
+                "action": "Mint a new password, deauth everyone, empty pool and board",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Ship / power off (FWOG_POWER_DEFAULT); the AP dies with the power",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flash-hold",
+          "label": "Flash C6",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Begin ROM write of fwog_c6.bin after BOOT hold + RESET on the Bottlenose",
+                "switchMenu": "flashing"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Cancel flash helper",
+                "switchMenu": "main"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flashing",
+          "label": "Writing C6",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "micscope",
+      "name": "MicScope",
+      "tagline": "PDM spectrogram: Gray-hold quiet cal, bars as dB SPL approx",
+      "description": "Main half: FatFs mscope.cal quiet-room persist for MicScope. On the display: PDM spectrogram and VU; Gray-hold quiet cal, bars as dB SPL approx. Clap detector, not a recorder.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Audio",
+      "tags": [
+        "mic",
+        "spectrogram",
+        "native"
+      ],
+      "version": "004",
+      "updated": "2026-09-23",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "micscope_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/micscope_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Spectrogram",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Freeze / unfreeze",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous frequency bar",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next frequency bar",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": {
+                "ms": 700,
+                "action": "Quiet-room cal (RMS + per-bar floor \u2192 mscope.cal)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Clear peak-hold overlay",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "opticclick",
+      "name": "OpticClick",
+      "tagline": "Multi-PHY capture, 24 FatFs slots, T9, NEC library",
+      "description": "Main half: FatFs OPTIC.BIN persist and link sync for OpticClick. On the display: multi-PHY IR capture/replay, 24 slots, T9 labels, NEC library blast. Not a stranger's set.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "IR",
+      "tags": [
+        "ir",
+        "nec",
+        "native"
+      ],
+      "version": "002",
+      "updated": "2026-09-25",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "opticclick_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/opticclick_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "capture",
+      "menus": [
+        {
+          "id": "capture",
+          "label": "CAPTURE",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Arm listen on this slot (tap again cancels)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-label this filled slot",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Replay this slot (loads slot PHY)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Open LIBRARY page",
+                "switchMenu": "library"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Open PHY picker",
+                "switchMenu": "phy",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous slot (1\u201324)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Push slots to main FatFs now",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next slot",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "library",
+          "label": "LIBRARY",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Send current brand + function as NEC (skip if unknown)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Next function (POWER \u2192 MUTE \u2192 CH+ \u2192 \u2026)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Blast that function across every brand with a non-zero word",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Open CAPTURE page",
+                "switchMenu": "capture"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Open PHY picker (library is NEC)",
+                "switchMenu": "phy",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous brand",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next brand",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "phy",
+          "label": "PHY",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Load this PHY (NEC / SIRC12 / SIRC15 / SIRC20 / RC5)",
+                "switchMenu": "capture"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Cancel",
+                "switchMenu": "capture"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous PHY",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next PHY",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "T9 label",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "orcalobby",
+      "name": "OrcaLobby",
+      "tagline": "Landing: LanFerry + PingHalo + BleDeck + AirMaraud",
+      "description": "Main half: one C6 mode at a time; no BattleBridge. PingHalo tile waits 3 s before LIB_GET. On the display: four PinDesk-scale tiles; Gray tap up, Red tap down, Green opens; Yellow/Green/Gray hold home. BLUE hold ROM-flashes fwog_c6.bin.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Lab",
+      "tags": [
+        "landing",
+        "bottlenose",
+        "add-on"
+      ],
+      "version": "004",
+      "updated": "2026-09-27",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "orcalobby_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/orcalobby_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "home",
+      "menus": [
+        {
+          "id": "home",
+          "label": "Home",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Open the selected tile",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": {
+                "ms": 700,
+                "action": "Return home from a tile",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": null,
+              "hold": {
+                "ms": 700,
+                "action": "ROM-flash Bottlenose fwog_c6.bin",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous tile",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Return home from a tile",
+                "switchMenu": "home",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next tile",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "pinghalo",
+      "name": "PingHalo",
+      "tagline": "BLE hunt: freeze locks list; T9 LABEL persist; YEL deletes slot",
+      "description": "Main half: LABEL persist; BLE stop+drain before FatFs; LIBDEL. On the display: freeze locks MACs, T9 labels one MAC, Yellow deletes a library slot. Yellow hold ROM-flashes fwog_c6.bin. Stock OG has no Bluetooth.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Apps",
+      "tags": [
+        "ble",
+        "bottlenose",
+        "proximity",
+        "add-on"
+      ],
+      "version": "023",
+      "updated": "2026-09-27",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "pinghalo_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/pinghalo_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Scan",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Freeze / unfreeze the current MAC list (up to 16)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Start / stop Bottlenose ROM flash of fwog_c6.bin",
+                "switchMenu": "flash-hold",
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Cycle filter all / named / Apple",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "ROM-flash fwog_c6.bin from this UF2 (BOOT, RESET, Green)",
+                "switchMenu": "flash-hold",
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Pin the highlighted row to the top (tap again unpins)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Open LIBRARY (PHLIB.BIN)",
+                "switchMenu": "library",
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Cursor up",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9 label the highlighted MAC",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Cursor down",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "library",
+          "label": "LIBRARY",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Empty slot: save pinned/cursor MAC. Filled slot: hunt that MAC",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Delete this library slot",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Leave library",
+                "switchMenu": "main"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous slot",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next slot",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "LABEL",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flash-hold",
+          "label": "Flash C6",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Begin ROM write of fwog_c6.bin after BOOT hold + RESET on the Bottlenose",
+                "switchMenu": "flashing"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Cancel flash helper",
+                "switchMenu": "main"
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "flashing",
+          "label": "Writing C6",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "pindesk",
+      "name": "PinDesk",
+      "tagline": "Landing: HeaderKit + QwiicBench + TtyGlass + Retia",
+      "description": "Main half: I2C then header UART then Retia CDC mux. On the display: four PinDesk-scale tiles; Gray tap up, Red tap down, Green opens; Yellow/Green/Gray hold returns home. HeaderKit scan, QwiicBench plot, TtyGlass RX, Retia mode view.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Lab",
+      "tags": [
+        "landing",
+        "native",
+        "breakout"
+      ],
+      "version": "003",
+      "updated": "2026-09-27",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "pindesk_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/pindesk_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "home",
+      "menus": [
+        {
+          "id": "home",
+          "label": "Home",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Open the selected tile",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous tile (wraps pages)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next tile (wraps pages)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "pitchfork",
+      "name": "PitchFork",
+      "tagline": "Tuner: Gray note, hold AUTO, Red ship only; floor 100",
+      "description": "Main half: brings the display up so PitchFork can run. On the display: chromatic tuner \u2014 Gray picks note E2\u2013E5, Gray hold AUTO, Red is only 6 s ship. Floor 100.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Audio",
+      "tags": [
+        "tuner",
+        "mic",
+        "native"
+      ],
+      "version": "003",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "pitchfork_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/pitchfork_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Tuner",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Cycle locked MIDI note E2\u2013E5",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Return to AUTO",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "qwiicbench",
+      "name": "QwiicBench",
+      "tagline": "I2C bench; T9 nick unknowns (RAM); Hi-Z other buses",
+      "description": "Main half: Hi-Z other buses; breakout I2C scan; BME280/BH1750. On the display: scan, named BME/BH, T9 nick unknowns (RAM only). 3.3 V header, not C6 Qwiic.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Breakout",
+      "tags": [
+        "i2c",
+        "sensors",
+        "breakout",
+        "native"
+      ],
+      "version": "002",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "qwiicbench_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/qwiicbench_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Bench",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Rescan the 3.3 V header",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous row when several devices are on the bus",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9 nickname an unknown address (RAM)",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next row",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "T9 nick",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "retia",
+      "name": "Retia (Bus Pirate)",
+      "tagline": "USB CDC bus terminal: HiZ, GPIO, I2C, UART and SPI on the 3.3 V breakout",
+      "description": "Main half: USB CDC HiZ/GPIO/I2C/UART/SPI terminal on the 3.3 V breakout. On the display: mode, pinout and status. Commands live on main CDC (help / mode hiz). Strictly 3.3 V.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Breakout",
+      "tags": [
+        "breakout",
+        "i2c",
+        "spi",
+        "uart",
+        "native"
+      ],
+      "version": "005",
+      "updated": "2026-09-27",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "retia_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/retia_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "LCD",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "rigglass",
+      "name": "RigGlass",
+      "tagline": "Host CPU/RAM/net/GPU/temp now+2m+10m over main CDC",
+      "description": "Main half: CDC telemetry parser for RigGlass. On the display: desk gauges for host CPU/RAM/net/GPU/temp (now + 2 m + 10 m). Helper: tools/rigglass/rigglass.py. Never open that port at 1200 baud.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Host",
+      "tags": [
+        "host",
+        "cdc",
+        "gauges",
+        "native"
+      ],
+      "version": "002",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "rigglass_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/rigglass_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Gauges",
+          "buttons": {
+            "green": {
+              "tap": null,
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "talkclip",
+      "name": "TalkClip",
+      "tagline": "VAD notes; Blue-hold hang; Gray-hold T9 names last CLIP; /talkclip",
+      "description": "Main half: FatFs writer + 8.3 rename for TalkClip (/talkclip). On the display: VAD notes, Blue-hold hang 0/2/10/60 s, Gray-hold T9 names last CLIP. Not a wiretap kit.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Audio",
+      "tags": [
+        "mic",
+        "vad",
+        "notes",
+        "fatfs",
+        "native"
+      ],
+      "version": "006",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "talkclip_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/talkclip_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Notes",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Arm / disarm the voice detector",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Force a clip open or closed regardless of loudness",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": {
+                "ms": 750,
+                "action": "Cycle hang 0 / 2 / 10 / 60 s",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "Threshold \u2212150",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9 rename last CLIP to NAME.RAW",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Threshold +150. Close any open clip, then ship",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "CLIP name",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tireear",
+      "name": "TireEar",
+      "tagline": "TPMS 315/433 ASK or 2-FSK; OEM profiles; 45 s scan and review",
+      "description": "Main half: CC1101 bit capture and OEM TPMS decode, RAM scan log. Display: Yellow 315/433, Blue ASK/2-FSK, Blue-hold OEM profile, Green 45 s scan then REVIEW, Gray/Red scroll the list.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Sub-GHz",
+      "tags": [
+        "subghz",
+        "tpms",
+        "rssi",
+        "native"
+      ],
+      "version": "004",
+      "updated": "2026-09-27",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "tireear_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/tireear_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Listen",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Start 45 s parking-lot scan (stop+REVIEW while scanning; listen while REVIEW)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Open REVIEW",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Toggle 315 NA / 433 EU",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Toggle ASK / 2-FSK",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Next OEM profile (AUTO, PMV-107J, Toyota, Schrader)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "gray": {
+              "tap": {
+                "action": "REVIEW: previous ID",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "REVIEW: next ID",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tonebox",
+      "name": "ToneBox",
+      "tagline": "DTMF + ACTS coin + MF R1 + CCITT C5 named pairs on speaker; not a blue box",
+      "description": "Main half: brings the display up so ToneBox can run. On the display: tone museum \u2014 DTMF sequencer, ACTS coin cadences, named MF R1 and CCITT C5 pairs on the I2S speaker. Not a blue box. No KP/ST seize sequencer and no line interface.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Audio",
+      "tags": [
+        "audio",
+        "dtmf",
+        "museum",
+        "native"
+      ],
+      "version": "004",
+      "updated": "2026-09-27",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "tonebox_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/tonebox_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "dtmf",
+      "menus": [
+        {
+          "id": "dtmf",
+          "label": "DTMF",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play this named pair (or stop if already playing)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next category",
+                "switchMenu": "dial"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous item",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next item",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "dial",
+          "label": "DIAL",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Append digit, PLAY SEQ, BKSP, or CLEAR (or stop if playing)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next category",
+                "switchMenu": "coin"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous item",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next item",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "coin",
+          "label": "COIN",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play this ACTS / CA / UK cadence into the speaker (or stop)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next category",
+                "switchMenu": "progress"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous item",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next item",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "progress",
+          "label": "PROGRESS",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play this progress tone (or stop)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next category",
+                "switchMenu": "mf"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous item",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next item",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "mf",
+          "label": "MF R1",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play this named MF pair, one at a time (or stop)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next category",
+                "switchMenu": "c5"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous item",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next item",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "c5",
+          "label": "C5",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play this named CCITT C5 pair, one at a time (or stop)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next category",
+                "switchMenu": "sf"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous item",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next item",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "sf",
+          "label": "SF / SPEC",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play this SF / special (2600 is capped at 2500 Hz) or stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next category",
+                "switchMenu": "about"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous item",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next item",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "about",
+          "label": "ABOUT",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Play (or stop)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Stop",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next category",
+                "switchMenu": "dtmf"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous item",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Next item",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "ttyglass",
+      "name": "TtyGlass",
+      "tagline": "Header UART RX allowlist (UART1/GP26/GP27/CTS); freeze; T9 find",
+      "description": "Main half: TtyGlass RX on UART1 or PIO header pads. On the display: header UART RX allowlist (UART1 H5, GP26 H14, GP27 H3, CTS H7), freeze, T9 find. 3.3 V. Hex or ASCII.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Breakout",
+      "tags": [
+        "uart",
+        "breakout",
+        "native"
+      ],
+      "version": "004",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "ttyglass_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/ttyglass_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Terminal",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Clear the screen",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Toggle HEX / ASCII",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Next RX pad (UART1 / GP26 / GP27 / CTS)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Freeze / follow tail",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous baud (9600\u2013921600)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9 search",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next baud",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "freeze",
+          "label": "Frozen",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Clear",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Toggle HEX / ASCII",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Next RX pad",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Return to live tail",
+                "switchMenu": "main"
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Page older",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9 search",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Page newer",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "Find",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Find (empty = cancel)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "twinfox",
+      "name": "TwinFox",
+      "tagline": "Dual CC1101 hunt; me/u RSSI; 1 kHz digits; 315/433/915",
+      "description": "Main half: TwinFox retune both CC1101s; optional ASK beacon. On the display: me (local RSSI0) and u (hunt RSSI1) averaged graphs with a gap so the bars do not collide, 1 kHz digits, Gray-hold parks 315 / 433.92 / 915. Red tap (short, on release) moves the digit right; 6 s hold still ships. Yellow hold toggles ~10 dBm ISM beacon.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Sub-GHz",
+      "tags": [
+        "subghz",
+        "foxhunt",
+        "rssi",
+        "native"
+      ],
+      "version": "005",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "twinfox_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/twinfox_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "main",
+      "menus": [
+        {
+          "id": "main",
+          "label": "Hunt",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "+1 the selected frequency digit",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "\u22121 the selected frequency digit",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Toggle your ISM beacon on radio 0 (~10 dBm)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Freeze / follow averaged RSSI graphs",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous frequency digit",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 700,
+                "action": "Next park 315 / 433.92 / 915",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next frequency digit (short tap; hold is ship)",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "voltpet",
+      "name": "VoltPet",
+      "tagline": "Eight foes, dash-in fights, random spark until you let go; T9 name",
+      "description": "Main half: FatFs voltpet.bin (species + name + stats) and CC1101 relic-listen. On the display: five looks, yellow-hold to hatch again, train/fight LED flash, foes that scale with level. Play-fights never kill it; only long neglect sends it home. Red hold 6 s saves then ships.",
+      "author": "Intrepid Control Systems",
+      "github": "https://github.com/nullswitch23/fwog_defcon",
+      "category": "Sensors",
+      "tags": [
+        "pet",
+        "sensors",
+        "subghz",
+        "fatfs",
+        "native"
+      ],
+      "version": "005",
+      "updated": "2026-09-26",
+      "flashScheme": "OgApp",
+      "uf2": [
+        {
+          "cpu": "main",
+          "path": "voltpet_main.uf2",
+          "url": "https://github.com/nullswitch23/fwog_defcon/releases/download/defcon-2026/voltpet_main.uf2"
+        }
+      ],
+      "shift": {
+        "button": null,
+        "whileHeld": false,
+        "menu": null
+      },
+      "defaultMenu": "home",
+      "menus": [
+        {
+          "id": "home",
+          "label": "Meadow",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Start the highlighted activity (Train, Sleep, Fight, Eat, Relics, or Story)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous activity",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 1400,
+                "action": "Let this spark go and hatch a new species",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next activity",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Open relics bag",
+                "switchMenu": "relic"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-name the companion",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": null,
+              "hold": {
+                "ms": 6000,
+                "action": "Save, then ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "train",
+          "label": "Train",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Mash for effort (or shake the board)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Open relics bag",
+                "switchMenu": "relic"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-name the companion",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Back to meadow",
+                "switchMenu": "home"
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Save, then ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "sleep",
+          "label": "Sleep",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Wake / home",
+                "switchMenu": "home"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Open relics bag",
+                "switchMenu": "relic"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-name the companion",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Back to meadow",
+                "switchMenu": "home"
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Save, then ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "fight",
+          "label": "Play-fight",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Spark",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Dash (charge)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Cheer (heal a little, then the foe moves)",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Open relics bag",
+                "switchMenu": "relic"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-name the companion",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Back to meadow",
+                "switchMenu": "home"
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Save, then ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "eat",
+          "label": "Eat",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Home still hungry (snacks are shake / sing / radio, not this button)",
+                "switchMenu": "home"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Open relics bag",
+                "switchMenu": "relic"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-name the companion",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Back to meadow",
+                "switchMenu": "home"
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Save, then ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "relic",
+          "label": "Relics",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Home",
+                "switchMenu": "home"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous relic",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next relic",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": null,
+              "hold": null
+            },
+            "red": {
+              "tap": {
+                "action": "Back to meadow",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Save, then ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "story",
+          "label": "Story",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Home",
+                "switchMenu": "home"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous page",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "blue": {
+              "tap": {
+                "action": "Next page",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Open relics bag",
+                "switchMenu": "relic"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-name the companion",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Back to meadow",
+                "switchMenu": "home"
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Save, then ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "find",
+          "label": "Relic find",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Keep it / home",
+                "switchMenu": "home"
+              },
+              "hold": null
+            },
+            "yellow": {
+              "tap": null,
+              "hold": null
+            },
+            "blue": {
+              "tap": null,
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Open relics bag at this find",
+                "switchMenu": "relic"
+              },
+              "hold": {
+                "ms": 750,
+                "action": "T9-name the companion",
+                "switchMenu": "t9",
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Back to meadow",
+                "switchMenu": "home"
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Save, then ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        },
+        {
+          "id": "t9",
+          "label": "Name",
+          "buttons": {
+            "green": {
+              "tap": {
+                "action": "Insert current letter",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Save / done",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "yellow": {
+              "tap": {
+                "action": "Previous letter in group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Backspace",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "blue": {
+              "tap": {
+                "action": "Next letter in group",
+                "switchMenu": null
+              },
+              "hold": null
+            },
+            "gray": {
+              "tap": {
+                "action": "Previous letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 750,
+                "action": "Cancel T9",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            },
+            "red": {
+              "tap": {
+                "action": "Next letter group",
+                "switchMenu": null
+              },
+              "hold": {
+                "ms": 6000,
+                "action": "Ship / power off (FWOG_POWER_DEFAULT)",
+                "switchMenu": null,
+                "whileHeld": false
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

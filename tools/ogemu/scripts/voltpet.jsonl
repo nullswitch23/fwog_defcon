@@ -1,0 +1,14 @@
+# VoltPet smoke. Title is drawn once and falls out of the 48-line overlay
+# log; "Y/B pick" is redrawn every paint. rf queues a stub-main VP_MSG_RF.
+{"cmd": "tick", "ms": 800}
+{"cmd": "expect_text", "contains": "Y/B pick"}
+{"cmd": "rf", "art": 0, "dbm": -72, "hz": 433920000}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "Boots of Looping Joy"}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "hold", "btn": "gray", "ms": 800}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "GRN tap add"}
+{"cmd": "dump"}
+{"cmd": "quit"}

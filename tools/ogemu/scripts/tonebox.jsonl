@@ -1,0 +1,5 @@
+# ToneBox speaker museum. Title is TONEBOX + category.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "TONEBOX"}
+{"cmd": "dump"}
+{"cmd": "quit"}

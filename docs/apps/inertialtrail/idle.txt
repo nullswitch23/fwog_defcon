@@ -1,0 +1,9 @@
+TEXT 8 overlay line(s)
+TEXT x=8 y=10 cols=16 scale=2 "InertialTrail"
+TEXT x=8 y=188 cols=40 scale=1 "GRAY/RED  stride"
+TEXT x=8 y=204 cols=40 scale=1 "BLUE mode   GREEN start/stop"
+TEXT x=8 y=220 cols=40 scale=1 "Not GPS. Pedometer + a map."
+TEXT x=8 y=48 cols=40 scale=1 "GREEN  start (hold still 1.2 s)"
+TEXT x=8 y=64 cols=40 scale=1 "stride 70 cm   last 0 steps"
+TEXT x=8 y=80 cols=40 scale=1 "BLUE mode   GRAY/RED stride"
+TEXT x=8 y=96 cols=40 scale=1 "walk WALK nnnn   GRAY hold T9"

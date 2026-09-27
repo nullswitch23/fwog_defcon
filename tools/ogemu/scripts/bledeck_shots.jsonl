@@ -1,0 +1,64 @@
+# Headless panel shots for docs/apps/bledeck.md (ogemu, not the board).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "waiting for Bottlenose"}
+{"cmd": "dump", "path": "docs/apps/bledeck/wait.png"}
+
+{"cmd": "bd_status", "hello": 1, "adv": 1, "conn": 0}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "advertising"}
+{"cmd": "dump", "path": "docs/apps/bledeck/advertise.png"}
+
+{"cmd": "bd_status", "hello": 1, "adv": 1, "conn": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "D-pad"}
+{"cmd": "dump", "path": "docs/apps/bledeck/dpad.png"}
+
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 800}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "media"}
+{"cmd": "dump", "path": "docs/apps/bledeck/media.png"}
+
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 800}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "talk"}
+{"cmd": "dump", "path": "docs/apps/bledeck/talk.png"}
+
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 800}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "desk"}
+{"cmd": "dump", "path": "docs/apps/bledeck/desk.png"}
+
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "Mute"}
+{"cmd": "dump", "path": "docs/apps/bledeck/key.png"}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+
+{"cmd": "bd_status", "hello": 1, "adv": 1, "conn": 1, "lock": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "locked"}
+{"cmd": "dump", "path": "docs/apps/bledeck/locked.png"}
+
+{"cmd": "bd_status", "hello": 1, "flash": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "flash wiliOG C6 image"}
+{"cmd": "dump", "path": "docs/apps/bledeck/flash_hold.png"}
+
+{"cmd": "bd_status", "hello": 1, "flash": 3, "pct": 47}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "writing flash"}
+{"cmd": "dump", "path": "docs/apps/bledeck/flash_write.png"}
+
+{"cmd": "bd_status", "hello": 1, "flash": 4}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "C6 flash ok"}
+{"cmd": "dump", "path": "docs/apps/bledeck/flash_ok.png"}
+
+{"cmd": "quit"}

@@ -1,0 +1,9 @@
+# Bring-up + first chrome. tick is virtual ms (sleep_ms is instant).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "HostDeck"}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 30}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 30}
+{"cmd": "dump"}
+{"cmd": "quit"}

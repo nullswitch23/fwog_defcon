@@ -1,0 +1,52 @@
+# Headless InertialTrail captures (ogemu).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "InertialTrail"}
+{"cmd": "dump", "path": "docs/apps/inertialtrail/idle.png"}
+
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 400}
+{"cmd": "expect_text", "contains": "stride"}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1600}
+{"cmd": "tick", "ms": 50}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "tick", "ms": 400}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1600}
+{"cmd": "tick", "ms": 50}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "tick", "ms": 400}
+{"cmd": "expect_text", "contains": "1.40 m"}
+{"cmd": "dump", "path": "docs/apps/inertialtrail/pedo.png"}
+
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "one stride per step"}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 400}
+{"cmd": "accel", "x": 250, "y": 0, "z": 1600}
+{"cmd": "tick", "ms": 50}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "tick", "ms": 400}
+{"cmd": "accel", "x": 250, "y": 0, "z": 1600}
+{"cmd": "tick", "ms": 50}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "tick", "ms": 400}
+{"cmd": "accel", "x": 0, "y": -250, "z": 1600}
+{"cmd": "tick", "ms": 50}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "tick", "ms": 400}
+{"cmd": "expect_text", "contains": "MAP"}
+{"cmd": "expect_text", "contains": "3 st"}
+{"cmd": "dump", "path": "docs/apps/inertialtrail/map.png"}
+{"cmd": "quit"}

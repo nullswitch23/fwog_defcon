@@ -1,0 +1,15 @@
+# DiskGlass: landing, inject a TalkClip capture, open it.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "DiskGlass"}
+{"cmd": "dg_vol", "count": 1, "free": 4000000}
+{"cmd": "dg_list", "index": 0, "name": "CLIP0001.RAW", "kind": 1, "size": 16048, "end": 1}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "CLIP0001"}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 30}
+{"cmd": "release", "btn": "green"}
+{"cmd": "dg_meta", "name": "CLIP0001.RAW", "kind": 1, "size": 16048, "ms": 1000, "hz": 8000}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "PCM 8 kHz"}
+{"cmd": "dump"}
+{"cmd": "quit"}

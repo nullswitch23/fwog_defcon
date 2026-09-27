@@ -1,0 +1,13 @@
+# ISMburst: synthetic IB_MSG_ST for an owned fixed-code gadget (guess 9).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "waiting for main"}
+{"cmd": "expect_text", "contains": "GREEN arm"}
+{"cmd": "expect_text", "contains": "FAN"}
+{"cmd": "ib_status", "state": 3, "rssi": -62, "peak_rssi": -40, "guess": 9, "label": "owned fob", "hex": "A55A"}
+{"cmd": "tick", "ms": 250}
+{"cmd": "expect_text", "contains": "captured"}
+{"cmd": "expect_text", "contains": "-62 now"}
+{"cmd": "expect_text", "contains": "owned fob"}
+{"cmd": "expect_text", "contains": "A55A"}
+{"cmd": "dump"}
+{"cmd": "quit"}

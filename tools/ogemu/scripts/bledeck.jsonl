@@ -1,0 +1,35 @@
+# BleDeck: wait screen, connected remote, page cycle, battery percent.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "BleDeck"}
+{"cmd": "expect_text", "contains": "waiting for Bottlenose"}
+{"cmd": "bd_status", "hello": 1, "adv": 1, "conn": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "connected"}
+{"cmd": "expect_text", "contains": "D-pad"}
+{"cmd": "expect_text", "contains": "66%"}
+{"cmd": "expect_text", "contains": "open pair"}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 800}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "media"}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 800}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "talk"}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 800}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 50}
+{"cmd": "expect_text", "contains": "desk"}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "expect_text", "contains": "Mute"}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "bd_status", "hello": 1, "adv": 1, "conn": 1, "lock": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "locked"}
+{"cmd": "dump"}
+{"cmd": "quit"}

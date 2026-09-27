@@ -1,0 +1,44 @@
+# Headless ISMburst captures (ogemu). Idle RSSI strip, hunt arm, owned decode.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "ISMburst"}
+{"cmd": "expect_text", "contains": "GRAY FAN"}
+{"cmd": "ib_status", "state": 0, "rssi": -102}
+{"cmd": "tick", "ms": 120}
+{"cmd": "ib_status", "state": 0, "rssi": -88}
+{"cmd": "tick", "ms": 120}
+{"cmd": "ib_status", "state": 0, "rssi": -70}
+{"cmd": "tick", "ms": 120}
+{"cmd": "ib_status", "state": 0, "rssi": -64}
+{"cmd": "tick", "ms": 120}
+{"cmd": "ib_status", "state": 0, "rssi": -80}
+{"cmd": "tick", "ms": 120}
+{"cmd": "expect_text", "contains": "433.92 ASK"}
+{"cmd": "expect_text", "contains": "idle"}
+{"cmd": "dump", "path": "docs/apps/ismburst/idle.png"}
+
+{"cmd": "ib_status", "state": 1, "rssi": -72}
+{"cmd": "tick", "ms": 120}
+{"cmd": "expect_text", "contains": "hunt"}
+{"cmd": "dump", "path": "docs/apps/ismburst/armed.png"}
+
+{"cmd": "ib_status", "state": 3, "rssi": -62, "peak_rssi": -40, "guess": 9, "label": "owned fob", "hex": "A55A3C"}
+{"cmd": "tick", "ms": 250}
+{"cmd": "expect_text", "contains": "captured"}
+{"cmd": "expect_text", "contains": "owned fob"}
+{"cmd": "dump", "path": "docs/apps/ismburst/capture.png"}
+
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "433.92 2FSK"}
+{"cmd": "dump", "path": "docs/apps/ismburst/fsk.png"}
+{"cmd": "quit"}

@@ -1,0 +1,6 @@
+# PitchFork idle: quiet until a tone is injected.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "PitchFork"}
+{"cmd": "expect_text", "contains": "QUIET"}
+{"cmd": "dump"}
+{"cmd": "quit"}

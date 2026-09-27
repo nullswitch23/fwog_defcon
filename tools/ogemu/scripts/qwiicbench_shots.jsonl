@@ -1,0 +1,32 @@
+# Headless QwiicBench captures (ogemu, not the board).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "QwiicBench"}
+{"cmd": "qg_status", "io_ok": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "0 on bus"}
+{"cmd": "dump", "path": "docs/apps/qwiicbench/empty.png"}
+
+{"cmd": "qg_status", "io_ok": 1, "name": "BME280", "val": "20.80C", "plot": 200}
+{"cmd": "tick", "ms": 40}
+{"cmd": "qg_status", "io_ok": 1, "name": "BME280", "val": "21.10C", "plot": 208}
+{"cmd": "tick", "ms": 40}
+{"cmd": "qg_status", "io_ok": 1, "name": "BME280", "val": "21.40C", "plot": 214}
+{"cmd": "tick", "ms": 40}
+{"cmd": "qg_status", "io_ok": 1, "name": "BME280", "val": "21.20C", "plot": 210}
+{"cmd": "tick", "ms": 40}
+{"cmd": "qg_status", "io_ok": 1, "name": "BME280", "val": "21.50C", "plot": 218}
+{"cmd": "tick", "ms": 40}
+{"cmd": "qg_status", "io_ok": 1, "name": "BME280", "val": "21.70C", "plot": 222}
+{"cmd": "tick", "ms": 40}
+{"cmd": "qg_status", "io_ok": 1, "name": "BME280", "val": "21.60C", "plot": 220}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "BME280"}
+{"cmd": "expect_text", "contains": "21.60C"}
+{"cmd": "dump", "path": "docs/apps/qwiicbench/bme280.png"}
+
+{"cmd": "qg_status", "io_ok": 1, "name": "0x19", "val": "present", "plot": 0}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "0x19"}
+{"cmd": "expect_text", "contains": "present"}
+{"cmd": "dump", "path": "docs/apps/qwiicbench/present.png"}
+{"cmd": "quit"}

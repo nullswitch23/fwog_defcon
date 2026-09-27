@@ -1,0 +1,5 @@
+# Retia LCD: HiZ until main sends a mode frame.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "MODE HIZ"}
+{"cmd": "dump"}
+{"cmd": "quit"}

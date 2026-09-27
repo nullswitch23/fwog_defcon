@@ -1,0 +1,52 @@
+# Headless InertialTrailRF captures (ogemu). Dual 15 s strips.
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "TrailRF"}
+{"cmd": "expect_text", "contains": "GRAY top park"}
+{"cmd": "expect_text", "contains": "BLUE bottom park"}
+{"cmd": "trf_status", "rssi0": -108, "hz0": 315000000, "rssi1": -104, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -102, "hz0": 315000000, "rssi1": -96, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -96, "hz0": 315000000, "rssi1": -88, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -88, "hz0": 315000000, "rssi1": -80, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -74, "hz0": 315000000, "rssi1": -92, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -64, "hz0": 315000000, "rssi1": -72, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -58, "hz0": 315000000, "rssi1": -66, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -70, "hz0": 315000000, "rssi1": -54, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -82, "hz0": 315000000, "rssi1": -48, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -90, "hz0": 315000000, "rssi1": -62, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -76, "hz0": 315000000, "rssi1": -70, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "trf_status", "rssi0": -68, "hz0": 315000000, "rssi1": -58, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "expect_text", "contains": "315 NA RKE"}
+{"cmd": "expect_text", "contains": "433.92 EU RKE"}
+{"cmd": "dump", "path": "docs/apps/inertialtrailrf/idle.png"}
+
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "press", "btn": "green"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "green"}
+{"cmd": "tick", "ms": 400}
+{"cmd": "expect_text", "contains": "WALK"}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1600}
+{"cmd": "tick", "ms": 50}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "tick", "ms": 400}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1600}
+{"cmd": "tick", "ms": 50}
+{"cmd": "accel", "x": 0, "y": 0, "z": 1000}
+{"cmd": "tick", "ms": 400}
+{"cmd": "trf_status", "rssi0": -72, "hz0": 315000000, "rssi1": -51, "hz1": 433920000}
+{"cmd": "tick", "ms": 110}
+{"cmd": "expect_text", "contains": "steps 2"}
+{"cmd": "dump", "path": "docs/apps/inertialtrailrf/walk.png"}
+{"cmd": "quit"}

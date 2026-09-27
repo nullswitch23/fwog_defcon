@@ -1,0 +1,55 @@
+# Headless panel shots for docs/apps/lanferry.md (ogemu, not the board).
+{"cmd": "tick", "ms": 200}
+{"cmd": "expect_text", "contains": "waiting for Bottlenose"}
+{"cmd": "dump", "path": "docs/apps/lanferry/wait.png"}
+
+{"cmd": "lf_status", "hello": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "AP off"}
+{"cmd": "dump", "path": "docs/apps/lanferry/idle.png"}
+
+{"cmd": "lf_status", "hello": 1, "ap_on": 1, "ssid": "FWOG-ferry", "pass": "K7mN2pQx"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "AP on"}
+{"cmd": "dump", "path": "docs/apps/lanferry/ap.png"}
+
+{"cmd": "lf_status", "hello": 1, "ap_on": 1, "clients": 2, "ssid": "FWOG-ferry", "pass": "K7mN2pQx", "file": "notes.txt", "bytes": 12288, "nfiles": 3}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "3 files"}
+{"cmd": "expect_text", "contains": "12/124K"}
+{"cmd": "dump", "path": "docs/apps/lanferry/drop.png"}
+
+{"cmd": "lf_status", "hello": 1, "ap_on": 1, "clients": 2, "ssid": "FWOG-ferry", "pass": "K7mN2pQx", "file": "photo.jpg", "bytes": 12288, "nfiles": 3, "pct": 47}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "pipe"}
+{"cmd": "expect_text", "contains": "47%"}
+{"cmd": "dump", "path": "docs/apps/lanferry/pipe.png"}
+
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "scan to join"}
+{"cmd": "dump", "path": "docs/apps/lanferry/qr.png"}
+
+{"cmd": "press", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+{"cmd": "release", "btn": "blue"}
+{"cmd": "tick", "ms": 40}
+
+{"cmd": "lf_status", "hello": 1, "flash": 1}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "flash wiliOG C6 image"}
+{"cmd": "dump", "path": "docs/apps/lanferry/flash_hold.png"}
+
+{"cmd": "lf_status", "hello": 1, "flash": 3, "pct": 47}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "writing flash"}
+{"cmd": "dump", "path": "docs/apps/lanferry/flash_write.png"}
+
+{"cmd": "lf_status", "hello": 1, "flash": 4}
+{"cmd": "tick", "ms": 80}
+{"cmd": "expect_text", "contains": "C6 flash ok"}
+{"cmd": "dump", "path": "docs/apps/lanferry/flash_ok.png"}
+
+{"cmd": "quit"}
